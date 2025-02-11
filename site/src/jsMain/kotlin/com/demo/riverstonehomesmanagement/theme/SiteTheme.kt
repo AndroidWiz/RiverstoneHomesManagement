@@ -1,4 +1,4 @@
-package com.demo.riverstonehomesmanagement
+package com.demo.riverstonehomesmanagement.theme
 
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors

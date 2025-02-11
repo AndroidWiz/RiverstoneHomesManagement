@@ -21,7 +21,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Div
 import com.demo.riverstonehomesmanagement.components.sections.Footer
 import com.demo.riverstonehomesmanagement.components.sections.NavHeader
-import com.demo.riverstonehomesmanagement.toSitePalette
+import com.demo.riverstonehomesmanagement.theme.toSitePalette
 
 val PageContentStyle = CssStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }

@@ -33,7 +33,7 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import com.demo.riverstonehomesmanagement.components.widgets.IconButton
-import com.demo.riverstonehomesmanagement.toSitePalette
+import com.demo.riverstonehomesmanagement.theme.toSitePalette
 
 val NavHeaderStyle = CssStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)

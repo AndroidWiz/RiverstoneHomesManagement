@@ -32,7 +32,7 @@ import org.jetbrains.compose.web.dom.Text
 import com.demo.riverstonehomesmanagement.HeadlineTextStyle
 import com.demo.riverstonehomesmanagement.SubheadlineTextStyle
 import com.demo.riverstonehomesmanagement.components.layouts.PageLayout
-import com.demo.riverstonehomesmanagement.toSitePalette
+import com.demo.riverstonehomesmanagement.theme.toSitePalette
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {

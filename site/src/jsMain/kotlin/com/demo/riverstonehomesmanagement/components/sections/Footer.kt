@@ -19,7 +19,7 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Span
-import com.demo.riverstonehomesmanagement.toSitePalette
+import com.demo.riverstonehomesmanagement.theme.toSitePalette
 
 val FooterStyle = CssStyle.base {
     Modifier
