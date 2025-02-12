@@ -21,9 +21,6 @@ import org.jetbrains.compose.web.css.*
 
 @InitSilk
 fun initSiteStyles(ctx: InitSilkContext) {
-    // This site does not need scrolling itself, but this is a good demonstration for how you might enable this in your
-    // own site. Note that we only enable smooth scrolling unless the user has requested reduced motion, which is
-    // considered a best practice.
     ctx.stylesheet.registerStyle("html") {
         cssRule(CSSMediaQuery.MediaFeature("prefers-reduced-motion", StylePropertyValue("no-preference"))) {
             Modifier.scrollBehavior(ScrollBehavior.Smooth)
@@ -32,10 +29,8 @@ fun initSiteStyles(ctx: InitSilkContext) {
 
     ctx.stylesheet.registerStyleBase("body") {
         Modifier
-//        font-family: 'Rubik',sans-serif;
-//        font-family: 'Karla',sans-serif;
             .fontFamily(
-                "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+                "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Rubik", "Karla", "Oxygen", "Ubuntu",
                 "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
             )
             .fontSize(18.px)

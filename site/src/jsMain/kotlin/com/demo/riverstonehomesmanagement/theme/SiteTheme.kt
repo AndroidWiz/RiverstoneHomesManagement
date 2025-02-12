@@ -45,7 +45,8 @@ object SitePalettes {
 fun ColorMode.toSitePalette(): SitePalette {
     return when (this) {
         ColorMode.LIGHT -> SitePalettes.light
-        ColorMode.DARK -> SitePalettes.dark
+        ColorMode.DARK -> SitePalettes.light
+//        ColorMode.DARK -> SitePalettes.dark
     }
 }
 

@@ -20,15 +20,16 @@ import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Span
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 
 val FooterStyle = CssStyle.base {
     Modifier
-        .backgroundColor(colorMode.toSitePalette().nearBackground)
+//        .backgroundColor(colorMode.toSitePalette().nearBackground)
         .padding(topBottom = 1.5.cssRem, leftRight = 10.percent)
 }
 
 @Composable
-fun Footer(modifier: Modifier = Modifier) {
+fun Footer(breakpoint: Breakpoint, modifier: Modifier = Modifier) {
     Box(FooterStyle.toModifier().then(modifier), contentAlignment = Alignment.Center) {
         Span(Modifier.textAlign(TextAlign.Center).toAttrs()) {
             val sitePalette = ColorMode.current.toSitePalette()

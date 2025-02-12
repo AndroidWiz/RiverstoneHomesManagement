@@ -1,7 +1,11 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.*
-import com.varabyte.kobweb.browser.dom.ElementTarget
+import com.demo.riverstonehomesmanagement.components.widgets.IconButton
+import com.demo.riverstonehomesmanagement.theme.toSitePalette
+import com.demo.riverstonehomesmanagement.utils.Constants
+import com.demo.riverstonehomesmanagement.utils.Res
+import com.varabyte.kobweb.compose.css.functions.blur
 import com.varabyte.kobweb.compose.css.functions.clamp
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -10,18 +14,15 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.CloseIcon
 import com.varabyte.kobweb.silk.components.icons.HamburgerIcon
-import com.varabyte.kobweb.silk.components.icons.MoonIcon
-import com.varabyte.kobweb.silk.components.icons.SunIcon
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
 import com.varabyte.kobweb.silk.components.overlay.Overlay
 import com.varabyte.kobweb.silk.components.overlay.OverlayVars
-import com.varabyte.kobweb.silk.components.overlay.PopupPlacement
-import com.varabyte.kobweb.silk.components.overlay.Tooltip
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.animation.Keyframes
 import com.varabyte.kobweb.silk.style.animation.toAnimation
@@ -32,18 +33,28 @@ import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
-import com.demo.riverstonehomesmanagement.components.widgets.IconButton
-import com.demo.riverstonehomesmanagement.theme.toSitePalette
-import com.demo.riverstonehomesmanagement.utils.Constants
-import com.demo.riverstonehomesmanagement.utils.Res
 
 val NavHeaderStyle = CssStyle.base {
-    Modifier.fillMaxWidth().padding(1.cssRem)
+    Modifier
+        .background(rgba(255, 255, 255, 0f))
+        .fillMaxWidth()
+        .padding(1.cssRem)
+        .backdropFilter(blur(2.px))
+        .styleModifier {
+            property("-webkit-backdrop-filter", "blur( 4px )")
+        }
 }
 
 @Composable
 private fun NavLink(path: String, text: String) {
-    Link(path, text, variant = UndecoratedLinkVariant.then(UncoloredLinkVariant))
+    Link(
+        path = path,
+        text = text,
+        variant = UndecoratedLinkVariant.then(UncoloredLinkVariant),
+        modifier = Modifier
+            .color(Color.white)
+            .fontFamily("Karla")
+    )
 }
 
 @Composable
@@ -53,15 +64,6 @@ private fun MenuItems() {
     NavLink(Constants.OFFERINGS_ROUTE, Constants.OFFERINGS_PAGE_TITLE)
     NavLink(Constants.CONTACT_ROUTE, Constants.CONTACT_PAGE_TITLE)
     NavLink("/", Constants.CALL_NOW_TITLE)
-}
-
-@Composable
-private fun ColorModeButton() {
-    var colorMode by ColorMode.currentState
-    IconButton(onClick = { colorMode = colorMode.opposite }) {
-        if (colorMode.isLight) MoonIcon() else SunIcon()
-    }
-    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
 }
 
 @Composable
@@ -103,19 +105,28 @@ enum class SideMenuState {
 }
 
 @Composable
-fun NavHeader() {
-    Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
+fun NavHeader(modifier: Modifier = Modifier) {
+    Row(NavHeaderStyle.toModifier().fillMaxWidth().then(modifier), verticalAlignment = Alignment.CenterVertically) {
+        Spacer()
         Link(Constants.HOME_ROUTE) {
             // Block display overrides inline display of the <img> tag, so it calculates centering better
-            Image(Res.LOGO, "Riverstone Homes Management Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
+            Image(
+                src = Res.LOGO,
+                description = "Riverstone Homes Management Logo",
+                modifier = Modifier.height(3.5.cssRem).display(DisplayStyle.Block)
+            )
         }
 
+        Spacer()
+        Spacer()
+        Spacer()
         Spacer()
 
         Row(Modifier.gap(1.5.cssRem).displayIfAtLeast(Breakpoint.MD), verticalAlignment = Alignment.CenterVertically) {
             MenuItems()
-            ColorModeButton()
         }
+
+        Spacer()
 
         Row(
             Modifier
@@ -126,7 +137,6 @@ fun NavHeader() {
         ) {
             var menuState by remember { mutableStateOf(SideMenuState.CLOSED) }
 
-            ColorModeButton()
             HamburgerButton(onClick = { menuState = SideMenuState.OPEN })
 
             if (menuState != SideMenuState.CLOSED) {
