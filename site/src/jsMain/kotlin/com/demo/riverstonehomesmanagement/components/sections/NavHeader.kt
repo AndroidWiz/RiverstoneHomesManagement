@@ -34,6 +34,8 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import com.demo.riverstonehomesmanagement.components.widgets.IconButton
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
+import com.demo.riverstonehomesmanagement.utils.Constants
+import com.demo.riverstonehomesmanagement.utils.Res
 
 val NavHeaderStyle = CssStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)
@@ -46,14 +48,17 @@ private fun NavLink(path: String, text: String) {
 
 @Composable
 private fun MenuItems() {
-    NavLink("/", "Home")
-    NavLink("/about", "About")
+    NavLink(Constants.HOME_ROUTE, Constants.HOME_PAGE_TITLE)
+    NavLink(Constants.ABOUT_ROUTE, Constants.ABOUT_PAGE_TITLE)
+    NavLink(Constants.OFFERINGS_ROUTE, Constants.OFFERINGS_PAGE_TITLE)
+    NavLink(Constants.CONTACT_ROUTE, Constants.CONTACT_PAGE_TITLE)
+    NavLink("/", Constants.CALL_NOW_TITLE)
 }
 
 @Composable
 private fun ColorModeButton() {
     var colorMode by ColorMode.currentState
-    IconButton(onClick = { colorMode = colorMode.opposite },) {
+    IconButton(onClick = { colorMode = colorMode.opposite }) {
         if (colorMode.isLight) MoonIcon() else SunIcon()
     }
     Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
@@ -100,9 +105,9 @@ enum class SideMenuState {
 @Composable
 fun NavHeader() {
     Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
-        Link("https://kobweb.varabyte.com") {
+        Link(Constants.HOME_ROUTE) {
             // Block display overrides inline display of the <img> tag, so it calculates centering better
-            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
+            Image(Res.LOGO, "Riverstone Homes Management Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
         }
 
         Spacer()
@@ -122,7 +127,7 @@ fun NavHeader() {
             var menuState by remember { mutableStateOf(SideMenuState.CLOSED) }
 
             ColorModeButton()
-            HamburgerButton(onClick =  { menuState = SideMenuState.OPEN })
+            HamburgerButton(onClick = { menuState = SideMenuState.OPEN })
 
             if (menuState != SideMenuState.CLOSED) {
                 SideMenu(
@@ -167,7 +172,10 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
                 horizontalAlignment = Alignment.End
             ) {
                 CloseButton(onClick = { close() })
-                Column(Modifier.padding(right = 0.75.cssRem).gap(1.5.cssRem).fontSize(1.4.cssRem), horizontalAlignment = Alignment.End) {
+                Column(
+                    Modifier.padding(right = 0.75.cssRem).gap(1.5.cssRem).fontSize(1.4.cssRem),
+                    horizontalAlignment = Alignment.End
+                ) {
                     MenuItems()
                 }
             }
