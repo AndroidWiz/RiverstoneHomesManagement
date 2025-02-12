@@ -20,5 +20,4 @@ object Constants {
     const val FACEBOOK_URL = "https://www.facebook.com/"
     const val INSTAGRAM_URL = "https://www.instagram.com/"
     const val TWITTER_URL = "https://twitter.com/"
-    const val X_URL = "https://twitter.com/"
 }
