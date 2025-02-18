@@ -2,9 +2,11 @@ package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.*
 import com.demo.riverstonehomesmanagement.components.widgets.IconButton
+import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
+import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.functions.blur
 import com.varabyte.kobweb.compose.css.functions.clamp
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -52,8 +54,10 @@ private fun NavLink(path: String, text: String) {
         text = text,
         variant = UndecoratedLinkVariant.then(UncoloredLinkVariant),
         modifier = Modifier
-            .color(Color.white)
+            .color(Color.NavLinkTextColor.rgb)
             .fontFamily("Karla")
+            .fontSize(16.px)
+            .fontWeight(FontWeight.Light)
     )
 }
 

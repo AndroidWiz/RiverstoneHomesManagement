@@ -2,6 +2,7 @@ package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.utils.Constants
+import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -13,6 +14,7 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
+import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorPalettes
 import org.jetbrains.compose.web.css.cssRem
@@ -37,6 +39,7 @@ fun LandingSection() {
                 text = "Your Dream Home Awaits",
                 modifier = Modifier
                     .fontFamily("Rubik")
+                    .fontWeight(FontWeight.SemiBold)
                     .fontSize(4.cssRem)
                     .color(Colors.White)
             )
@@ -45,10 +48,12 @@ fun LandingSection() {
                 text = "Discover expert craftsmanship and personalized solutions for your residential needs anywhere in FL.",
                 modifier = Modifier
                     .fontFamily("Karla")
-                    .fontSize(16.px)
+                    .fontWeight(FontWeight.Light)
+                    .lineHeight(25.px)
+                    .fontSize(17.px)
                     .textAlign(TextAlign.Center)
                     .color(Colors.White)
-                    .width(450.px)
+                    .width(480.px)
             )
 
             Spacer()
@@ -56,7 +61,8 @@ fun LandingSection() {
             Button(
                 onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
                 colorPalette = ColorPalettes.Green,
-                modifier = Modifier.fontFamily("Karla").fontSize(16.px).color(Colors.White)
+                modifier = Modifier.fontFamily("Karla").fontSize(16.px).color(Colors.White),
+                size = ButtonSize.LG,
             ) {
                 Text("Connect With Us")
             }

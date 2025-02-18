@@ -17,7 +17,9 @@ enum class Color(
     GreenButton1(hex = "#369237", rgb = rgb(54, 146, 55)),
     GreenButton2(hex = "#54B434", rgb = rgb(84, 180, 52)),
     ServiceNumberTextColor(hex = "#6db249", rgb = rgb(109, 178, 73)),
-    ServiceTitleTextColor(hex = "#111729", rgb = rgb(17, 23, 41)),
+    ServiceTitleTextColor(hex = "#0F172A", rgb = rgb(15, 23, 42)),
+    ServiceSubTitleTextColor(hex = "#2f3b40", rgb = rgb(47, 59, 64)),
     ServiceDescriptionTextColor(hex = "#313b3f", rgb = rgb(49, 59, 63)),
     OurStoryBgColor(hex = "#f0fbe4", rgb = rgb(240, 251, 228)),
+    NavLinkTextColor(hex = "#D5EAD8", rgb = rgb(213, 234, 216)),
 }

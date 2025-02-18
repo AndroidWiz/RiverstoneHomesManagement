@@ -33,8 +33,11 @@ import com.demo.riverstonehomesmanagement.HeadlineTextStyle
 import com.demo.riverstonehomesmanagement.SubheadlineTextStyle
 import com.demo.riverstonehomesmanagement.components.layouts.PageLayout
 import com.demo.riverstonehomesmanagement.components.sections.LandingSection
+import com.demo.riverstonehomesmanagement.components.sections.ServicesSection
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
 import com.demo.riverstonehomesmanagement.utils.Constants
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.ui.Alignment
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {
@@ -48,7 +51,13 @@ val HeroContainerStyle = CssStyle {
 fun HomePage() {
     PageLayout(Constants.HOME_PAGE_TITLE) {
         Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
-            LandingSection()
+//            LandingSection()
+            Column(
+                verticalArrangement = Arrangement.spacedBy(20.px)
+            ) {
+                LandingSection()
+                ServicesSection()
+            }
         }
     }
 }
