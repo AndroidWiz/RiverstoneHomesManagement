@@ -35,7 +35,7 @@ fun LandingImage(modifier: Modifier) {
     BackgroundImage(
         src = Res.LANDING_PAGE_IMAGE,
         modifier = modifier,
-        cropHeight = 700
+        cropHeight = 550
     )
 }
 
@@ -57,7 +57,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
     ) {
         Box(
             modifier = Modifier.fillMaxWidth()
-                .margin { top((-600).px) }
+                .margin { top((-400).px) }
         ) {
             LandingImage(
                 modifier = Modifier
@@ -80,7 +80,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
                     .columnGap(0.px)
                     .backgroundRepeat(BackgroundRepeat.NoRepeat)
                     .backgroundSize(BackgroundSize.Cover)
-                    .background(rgba(0, 0, 0, 0.5))
+                    .background(rgba(0, 0, 0, 0.67))
             )
         }
 

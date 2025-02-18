@@ -6,6 +6,7 @@ import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -28,7 +29,7 @@ fun LandingSection() {
 
         // content
         Column(
-            modifier = Modifier.fillMaxWidth().margin { top(180.px) },
+            modifier = Modifier.fillMaxWidth().margin { top(100.px) },
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(15.px)
         ) {
@@ -49,6 +50,8 @@ fun LandingSection() {
                     .color(Colors.White)
                     .width(450.px)
             )
+
+            Spacer()
 
             Button(
                 onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },

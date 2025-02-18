@@ -39,7 +39,7 @@ val NavHeaderStyle = CssStyle.base {
         .background(rgba(255, 255, 255, 0f))
         .fillMaxWidth()
         .padding(1.cssRem)
-        .backdropFilter(blur(2.px))
+        .backdropFilter(blur(4.px))
         .styleModifier {
             property("-webkit-backdrop-filter", "blur( 4px )")
         }
