@@ -6,16 +6,17 @@ import com.demo.riverstonehomesmanagement.components.sections.Footer
 import com.demo.riverstonehomesmanagement.components.sections.NavHeader
 import com.demo.riverstonehomesmanagement.components.widgets.AppearanceAwareImage
 import com.demo.riverstonehomesmanagement.components.widgets.BackToTopButton
+import com.demo.riverstonehomesmanagement.components.widgets.BackgroundImage
 import com.demo.riverstonehomesmanagement.utils.Res
-import com.varabyte.kobweb.compose.css.BackgroundPosition
-import com.varabyte.kobweb.compose.css.BackgroundSize
-import com.varabyte.kobweb.compose.css.PointerEvents
+import com.varabyte.kobweb.compose.css.*
+import com.varabyte.kobweb.compose.css.functions.url
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
@@ -31,9 +32,10 @@ val PageContentStyle = CssStyle {
 @Composable
 fun LandingImage(modifier: Modifier) {
 
-    AppearanceAwareImage(
+    BackgroundImage(
         src = Res.LANDING_PAGE_IMAGE,
-        modifier = modifier
+        modifier = modifier,
+        cropHeight = 700
     )
 }
 
@@ -57,20 +59,28 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             modifier = Modifier.fillMaxWidth()
                 .margin { top((-600).px) }
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(rgba(0, 0, 0, 0.1))
-            )
-
             LandingImage(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
                     .pointerEvents(PointerEvents.None)
-                    .fillMaxWidth()
-                /*.styleModifier {
-                    property("height", "auto")
-                }*/
+                    .fillMaxSize()
+//                    .background(rgba(0, 0, 0, 0.5))
+                    .styleModifier {
+                        property("height", "auto")
+                    }
+            )
+
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .backgroundAttachment(BackgroundAttachment.Scroll)
+                    .backgroundClip(BackgroundClip.PaddingBox)
+                    .rowGap(32.px)
+                    .padding(topBottom = 225.px, leftRight = 40.px)
+                    .columnGap(0.px)
+                    .backgroundRepeat(BackgroundRepeat.NoRepeat)
+                    .backgroundSize(BackgroundSize.Cover)
+                    .background(rgba(0, 0, 0, 0.5))
             )
         }
 
