@@ -117,7 +117,7 @@ fun NavHeader(modifier: Modifier = Modifier) {
             Image(
                 src = Res.LOGO,
                 description = "Riverstone Homes Management Logo",
-                modifier = Modifier.height(3.5.cssRem).display(DisplayStyle.Block)
+                modifier = Modifier.width(12.5.cssRem).height(3.938.cssRem).display(DisplayStyle.Block)
             )
         }
 

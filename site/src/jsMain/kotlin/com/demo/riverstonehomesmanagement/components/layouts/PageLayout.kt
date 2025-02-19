@@ -58,7 +58,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
         Box(
             modifier = Modifier.fillMaxWidth()
 //                .margin { top((-400).px) }
-                .margin { top((-1300).px) }
+                .margin { top((-1360).px) }
         ) {
             LandingImage(
                 modifier = Modifier
