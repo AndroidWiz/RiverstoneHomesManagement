@@ -31,7 +31,7 @@ fun ServiceItem(service: Services, modifier: Modifier = Modifier) {
         verticalAlignment = Alignment.CenterVertically,
     ) {
 
-        BackgroundImage(
+        ServiceImage(
             src = service.image,
             modifier = modifier
                 .margin(left = (-120).px)

@@ -71,3 +71,32 @@ fun BackgroundImage(
         ref = ref
     )
 }
+
+@Composable
+fun ServiceImage(
+    src: String,
+    modifier: Modifier = Modifier,
+    variant: CssStyleVariant<ImageKind>? = null,
+    width: Int? = null,
+    height: Int? = null,
+    alt: String = "",
+    ref: ElementRefScope<HTMLImageElement>? = null,
+    cropHeight: Int? = null
+) {
+    Image(
+        src = src,
+        modifier = Modifier
+            .then(modifier)
+            .styleModifier {
+                if (cropHeight != null) {
+                    property("object-fit", "cover")
+                    property("height", "${cropHeight}px")
+                }
+            },
+        variant = variant,
+        width = width,
+        height = height,
+        alt = alt,
+        ref = ref
+    )
+}
