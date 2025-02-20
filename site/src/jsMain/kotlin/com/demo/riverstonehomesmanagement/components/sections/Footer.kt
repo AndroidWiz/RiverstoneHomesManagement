@@ -1,6 +1,7 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
+import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.css.WhiteSpace
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -21,6 +22,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.dom.Span
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import org.jetbrains.compose.web.css.px
 
 val FooterStyle = CssStyle.base {
     Modifier
@@ -32,23 +34,12 @@ val FooterStyle = CssStyle.base {
 fun Footer(breakpoint: Breakpoint, modifier: Modifier = Modifier) {
     Box(FooterStyle.toModifier().then(modifier), contentAlignment = Alignment.Center) {
         Span(Modifier.textAlign(TextAlign.Center).toAttrs()) {
-            val sitePalette = ColorMode.current.toSitePalette()
-            SpanText("Built with ")
-            Link(
-                "https://github.com/varabyte/kobweb",
-                "Kobweb",
-                Modifier.setVariable(ColorVar, sitePalette.brand.primary),
-                variant = UncoloredLinkVariant
-            )
-            SpanText(", template designed by ")
-
-            // Huge thanks to UI Rocket (https://ui-rocket.com) for putting this great template design together for us!
-            // If you like what you see here and want help building your own site, consider checking out their services.
-            Link(
-                "https://ui-rocket.com",
-                "UI Rocket",
-                Modifier.setVariable(ColorVar, sitePalette.brand.accent).whiteSpace(WhiteSpace.NoWrap),
-                variant = UncoloredLinkVariant
+            SpanText(
+                text = "\u00A9 2025 Riverstone Homes Management",
+                modifier = modifier
+                    .fontFamily("Karla")
+                    .fontSize(14.px)
+                    .color(Color.ServiceSubTitleTextColor.rgb)
             )
         }
     }
