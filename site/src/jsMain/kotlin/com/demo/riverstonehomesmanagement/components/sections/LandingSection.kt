@@ -32,7 +32,7 @@ fun LandingSection() {
             .fillMaxWidth()
             /*.height(600.px)
             .position(Position.Relative),*/
-            .padding(top = 100.px, bottom = 100.px, left = 40.px, right = 40.px)
+//            .padding(top = 100.px, bottom = 100.px, left = 40.px, right = 40.px)
 //            .boxShadow(0.px, 0.px, color = rgba(0, 0, 0, 0.67)) // Simulate box-shadow
             .overflow(Overflow.Visible) // ensures content doesn’t get hidden
             .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
@@ -64,6 +64,13 @@ fun LandingSection() {
          )*/
 
 
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(rgba(0, 0, 0, 0.6))
+        )
+
+
         // content
         Column(
             modifier = Modifier.fillMaxWidth()
@@ -72,7 +79,7 @@ fun LandingSection() {
 //                .background(rgba(0, 0, 0, 0.67))
 //                .padding { top(100.px) }
                 .position(Position.Relative)
-                .padding(40.px)
+                .padding(topBottom = 150.px, leftRight = 40.px)
 //                .margin { top(100.px) }
             ,
             horizontalAlignment = Alignment.CenterHorizontally,
