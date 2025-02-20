@@ -32,10 +32,7 @@ import org.jetbrains.compose.web.dom.Text
 import com.demo.riverstonehomesmanagement.HeadlineTextStyle
 import com.demo.riverstonehomesmanagement.SubheadlineTextStyle
 import com.demo.riverstonehomesmanagement.components.layouts.PageLayout
-import com.demo.riverstonehomesmanagement.components.sections.LandingSection
-import com.demo.riverstonehomesmanagement.components.sections.OurStorySection
-import com.demo.riverstonehomesmanagement.components.sections.ServicesSection
-import com.demo.riverstonehomesmanagement.components.sections.WhyChooseUsSection
+import com.demo.riverstonehomesmanagement.components.sections.*
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
@@ -67,6 +64,7 @@ fun HomePage() {
                     ServicesSection()
                     OurStorySection()
                     WhyChooseUsSection()
+                    TransformYourHomeSection()
                 }
             }
         }
