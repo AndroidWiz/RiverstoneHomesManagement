@@ -17,14 +17,15 @@ import org.jetbrains.compose.web.dom.Div
 
 @Page
 @Composable
-fun AboutPage() {
-    PageLayout(Constants.ABOUT_PAGE_TITLE) {
-//        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
-        Div {
+fun OfferingsPage() {
+    PageLayout(Constants.OFFERINGS_PAGE_TITLE) {
+        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
+//        Div {
 
             Box(modifier = Modifier.padding(top = 300.px).margin(left = 100.px)) {
-                SpanText(text = Constants.ABOUT_PAGE_TITLE)
+                SpanText(text = Constants.OFFERINGS_PAGE_TITLE)
             }
+
 
         }
     }

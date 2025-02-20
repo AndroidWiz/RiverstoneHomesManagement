@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.layouts.PageLayout
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.padding
@@ -17,14 +18,15 @@ import org.jetbrains.compose.web.dom.Div
 
 @Page
 @Composable
-fun AboutPage() {
-    PageLayout(Constants.ABOUT_PAGE_TITLE) {
-//        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
-        Div {
+fun ContactPage() {
+    PageLayout(Constants.CONTACT_PAGE_TITLE) {
+        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
+//        Div {
 
             Box(modifier = Modifier.padding(top = 300.px).margin(left = 100.px)) {
-                SpanText(text = Constants.ABOUT_PAGE_TITLE)
+                SpanText(text = Constants.CONTACT_PAGE_TITLE)
             }
+
 
         }
     }
