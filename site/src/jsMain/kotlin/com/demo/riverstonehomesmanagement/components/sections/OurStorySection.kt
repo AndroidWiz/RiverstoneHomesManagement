@@ -36,16 +36,6 @@ fun OurStorySection(modifier: Modifier = Modifier) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
 
-                ServiceImage(
-                    src = Res.OUT_STORY_IMAGE,
-                    modifier = modifier
-//                        .margin(left = (-120).px)
-                        .size(500.px)
-                        .aspectRatio(1f)
-                        .objectFit(ObjectFit.Cover)
-                        .clip(shape = Rect(10.px)),
-                )
-
 
                 Column(
 //                    modifier = modifier.margin(right = (-150).px),
@@ -72,6 +62,17 @@ fun OurStorySection(modifier: Modifier = Modifier) {
                             .color(Color.ServiceSubTitleTextColor.rgb)
                     )
                 }
+
+
+                ServiceImage(
+                    src = Res.OUT_STORY_IMAGE,
+                    modifier = modifier
+//                        .margin(left = (-120).px)
+                        .size(500.px)
+                        .aspectRatio(1f)
+                        .objectFit(ObjectFit.Cover)
+                        .clip(shape = Rect(10.px)),
+                )
             }
         }
     }
