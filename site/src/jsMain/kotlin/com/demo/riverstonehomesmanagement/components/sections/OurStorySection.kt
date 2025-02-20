@@ -30,7 +30,7 @@ fun OurStorySection(modifier: Modifier = Modifier) {
             contentAlignment = Alignment.Center,
         ) {
             Row(
-                modifier = modifier.fillMaxWidth().margin { topBottom(100.px) },
+                modifier = modifier.fillMaxWidth().margin { topBottom(70.px) },
 //        modifier = modifier.fillMaxWidth().margin(topBottom = 20.px, leftRight = (-50).px),
                 horizontalArrangement = Arrangement.spacedBy(100.px),
                 verticalAlignment = Alignment.CenterVertically,

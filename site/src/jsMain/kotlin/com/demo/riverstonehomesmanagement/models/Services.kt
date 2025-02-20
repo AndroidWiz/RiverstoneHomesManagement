@@ -24,13 +24,13 @@ fun getAllServices() = listOf<Services>(
     ),
     Services(
         id = "03",
-        image = "",
+        image = Res.QUALITY_LAWN_SERVICE_IMAGE,
         title = "Quality Lawn Services",
         description = "We pride ourselves on delivering superior quality in every project, ensuring your complete satisfaction and peace of mind."
     ),
     Services(
         id = "04",
-        image = "",
+        image = Res.PERSONALISED_SOLUTIONS_IMAGE,
         title = "Personalized Solutions",
         description = "Our dedicated team works closely with you to tailor solutions that reflect your style and preferences."
     ),
