@@ -37,15 +37,13 @@ import com.demo.riverstonehomesmanagement.components.sections.OurStorySection
 import com.demo.riverstonehomesmanagement.components.sections.ServicesSection
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
 import com.demo.riverstonehomesmanagement.utils.Constants
+import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.ui.Alignment
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {
-    base {
-        Modifier.fillMaxWidth()
-//            .gap(2.cssRem)
-    }
+    base { Modifier.fillMaxWidth().gap(2.cssRem) }
 //    Breakpoint.MD { Modifier.margin { top(20.vh) } }
 }
 
@@ -54,14 +52,20 @@ val HeroContainerStyle = CssStyle {
 @Composable
 fun HomePage() {
     PageLayout(Constants.HOME_PAGE_TITLE) {
-        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
+//        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
 //            LandingSection()
-            Column(
-                verticalArrangement = Arrangement.spacedBy(20.px)
-            ) {
-                LandingSection()
-                ServicesSection()
-                OurStorySection()
+
+        Row(
+            Modifier.fillMaxWidth()
+        ) {
+            Box {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(20.px)
+                ) {
+                    LandingSection()
+                    ServicesSection()
+                    OurStorySection()
+                }
             }
         }
     }

@@ -1,9 +1,11 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
+import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.utils.Constants
-import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
+import com.demo.riverstonehomesmanagement.utils.Res
+import com.varabyte.kobweb.compose.css.*
+import com.varabyte.kobweb.compose.css.functions.url
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -17,21 +19,62 @@ import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorPalettes
+import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.rgba
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun LandingSection() {
     Box(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            /*.height(600.px)
+            .position(Position.Relative),*/
+            .padding(top = 100.px, bottom = 100.px, left = 40.px, right = 40.px)
+//            .boxShadow(0.px, 0.px, color = rgba(0, 0, 0, 0.67)) // Simulate box-shadow
+            .overflow(Overflow.Visible) // ensures content doesn’t get hidden
+            .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
+            .backgroundRepeat(BackgroundRepeat.NoRepeat) // no repeating
+            .backgroundPosition(BackgroundPosition.of(CSSPosition.Center))
+            .backgroundSize(BackgroundSize.Cover)
+            .backgroundAttachment(BackgroundAttachment.Scroll)
+            .backgroundClip(BackgroundClip.PaddingBox),
         contentAlignment = Alignment.Center,
     ) {
         val ctx = rememberPageContext()
 
+        // background Image
+        /* Box(
+             modifier = Modifier.fillMaxSize()
+                 .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
+                 .backgroundSize(BackgroundSize.Cover)
+                 .position(Position.Absolute)
+         )*/
+
+        // dark Overlay
+        /* Box(
+             modifier = Modifier
+                 .fillMaxSize()
+                 .backgroundColor(rgba(0, 0, 0, 0.6))
+                 .position(Position.Absolute)
+                 .zIndex(-1)
+                 .translate(5.px, 5.px)
+         )*/
+
+
         // content
         Column(
-            modifier = Modifier.fillMaxWidth().margin { top(100.px) },
+            modifier = Modifier.fillMaxWidth()
+//                .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
+//                .backgroundSize(BackgroundSize.Cover)
+//                .background(rgba(0, 0, 0, 0.67))
+//                .padding { top(100.px) }
+                .position(Position.Relative)
+                .padding(40.px)
+//                .margin { top(100.px) }
+            ,
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(15.px)
         ) {

@@ -14,6 +14,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.Modifier.Companion.then
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
@@ -45,6 +46,7 @@ val NavHeaderStyle = CssStyle.base {
         .styleModifier {
             property("-webkit-backdrop-filter", "blur( 4px )")
         }
+        .zIndex(1)
 }
 
 @Composable

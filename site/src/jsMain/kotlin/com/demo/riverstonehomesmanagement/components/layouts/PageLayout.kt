@@ -10,6 +10,7 @@ import com.demo.riverstonehomesmanagement.components.widgets.BackgroundImage
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.css.functions.url
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
@@ -17,12 +18,15 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
 import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Header
 
 val PageContentStyle = CssStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }
@@ -40,6 +44,30 @@ fun LandingImage(modifier: Modifier) {
 }
 
 @Composable
+fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
+
+    val breakpoint = rememberBreakpoint()
+
+    LaunchedEffect(title) {
+        document.title = "Riverstone Homes Management - $title"
+    }
+
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+//        color = { rgb(255, 255, 255) } // Fixed light background color
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Top
+        ) {
+            NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px))
+            Div({ style { flex(1) } }) { content() }
+            Footer(breakpoint = breakpoint, modifier = Modifier.fillMaxWidth().gridRow(2))
+        }
+    }
+}
+
+/*@Composable
 fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
 
     val breakpoint = rememberBreakpoint()
@@ -89,10 +117,10 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             Modifier.fillMaxSize().gridRow(1),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            /*NavHeader()
+            *//*NavHeader()
             Div(PageContentStyle.toAttrs()) {
                 content()
-            }*/
+            }*//*
             Column(
                 PageContentStyle.toModifier(),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -105,4 +133,4 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
         Footer(breakpoint = breakpoint, modifier = Modifier.fillMaxWidth().gridRow(2))
     }
-}
+}*/

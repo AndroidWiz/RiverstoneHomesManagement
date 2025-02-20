@@ -29,7 +29,7 @@ fun ServicesSection() {
             contentAlignment = Alignment.Center,
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth().margin { top(150.px) },
+                modifier = Modifier.fillMaxWidth().margin { top(50.px) },
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(15.px)
             ) {
@@ -58,7 +58,7 @@ fun ServicesSection() {
 
                 SimpleGrid(
                     numColumns = numColumns(base = 1),
-                    modifier = Modifier.margin(top = 1.5.cssRem, bottom = 2.cssRem)
+                    modifier = Modifier.padding(leftRight = 300.px).margin(top = 1.5.cssRem, bottom = 2.cssRem)
                 ) {
                     val services = getAllServices().take(2)
 

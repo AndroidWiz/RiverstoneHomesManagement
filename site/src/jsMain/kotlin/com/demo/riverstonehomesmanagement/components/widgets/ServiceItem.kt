@@ -34,7 +34,7 @@ fun ServiceItem(service: Services, modifier: Modifier = Modifier) {
         ServiceImage(
             src = service.image,
             modifier = modifier
-                .margin(left = (-120).px)
+//                .margin(left = (-120).px)
                 .size(500.px)
                 .aspectRatio(1f)
                 .objectFit(ObjectFit.Cover)
@@ -43,7 +43,7 @@ fun ServiceItem(service: Services, modifier: Modifier = Modifier) {
 
 
         Column(
-            modifier = modifier.margin(right = (-150).px),
+//            modifier = modifier.margin(right = (-150).px),
             verticalArrangement = Arrangement.spacedBy(20.px)
         ) {
             SpanText(

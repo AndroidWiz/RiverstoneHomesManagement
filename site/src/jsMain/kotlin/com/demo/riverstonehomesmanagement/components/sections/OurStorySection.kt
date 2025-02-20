@@ -26,11 +26,11 @@ fun OurStorySection(modifier: Modifier = Modifier) {
 
     Div {
         Box(
-            modifier = Modifier.fillMaxWidth().backgroundColor(Color.OurStoryBgColor.rgb),
+            modifier = Modifier.fillMaxWidth().padding(leftRight = 300.px).backgroundColor(Color.OurStoryBgColor.rgb),
             contentAlignment = Alignment.Center,
         ) {
             Row(
-                modifier = modifier.fillMaxWidth().margin { topBottom(20.px) },
+                modifier = modifier.fillMaxWidth().margin { topBottom(100.px) },
 //        modifier = modifier.fillMaxWidth().margin(topBottom = 20.px, leftRight = (-50).px),
                 horizontalArrangement = Arrangement.spacedBy(100.px),
                 verticalAlignment = Alignment.CenterVertically,
@@ -39,7 +39,7 @@ fun OurStorySection(modifier: Modifier = Modifier) {
                 ServiceImage(
                     src = Res.OUT_STORY_IMAGE,
                     modifier = modifier
-                        .margin(left = (-120).px)
+//                        .margin(left = (-120).px)
                         .size(500.px)
                         .aspectRatio(1f)
                         .objectFit(ObjectFit.Cover)
@@ -48,7 +48,7 @@ fun OurStorySection(modifier: Modifier = Modifier) {
 
 
                 Column(
-                    modifier = modifier.margin(right = (-150).px),
+//                    modifier = modifier.margin(right = (-150).px),
                     verticalArrangement = Arrangement.spacedBy(20.px)
                 ) {
                     SpanText(
