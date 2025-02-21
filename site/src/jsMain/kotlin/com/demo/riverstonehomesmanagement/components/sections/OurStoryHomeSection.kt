@@ -25,7 +25,7 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 
 @Composable
-fun OurStorySection(modifier: Modifier = Modifier) {
+fun OurStoryHomeSection(modifier: Modifier = Modifier) {
 
     val ctx = rememberPageContext()
 
