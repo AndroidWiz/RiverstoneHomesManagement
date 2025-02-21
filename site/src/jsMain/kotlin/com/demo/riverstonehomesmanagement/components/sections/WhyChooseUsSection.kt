@@ -59,7 +59,7 @@ fun WhyChooseUsSection(modifier: Modifier = Modifier) {
                     val services = getAllServices().takeLast(2)
 
                     repeat(services.size) {
-                        ServiceItem(service = services[it])
+                        ServiceItem(service = services[it], buttonTitle = "Learn More")
                     }
                 }
             }

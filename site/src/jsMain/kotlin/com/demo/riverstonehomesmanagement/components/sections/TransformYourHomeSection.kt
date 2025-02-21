@@ -1,6 +1,7 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
+import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceItem
 import com.demo.riverstonehomesmanagement.models.getAllServices
 import com.demo.riverstonehomesmanagement.theme.Color
@@ -87,14 +88,22 @@ fun TransformYourHomeSection(modifier: Modifier = Modifier) {
 
                 Spacer()
 
-                Button(
+                BorderedButton(
+                    modifier = modifier,
+                    onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
+                    buttonTitle = "Explore Now",
+                    defaultBgColor = Color.White.rgb,
+                    defaultBorderColor = Color.White.rgb,
+                    hoveredBorderColor = Color.HoveredGreenButtonColor.rgb
+                )
+                /*Button(
                     onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
                     colorPalette = ColorPalettes.Green,
                     modifier = Modifier.fontFamily("Karla").fontSize(16.px).color(Colors.White),
                     size = ButtonSize.LG,
                 ) {
                     Text("Explore Now")
-                }
+                }*/
             }
         }
     }

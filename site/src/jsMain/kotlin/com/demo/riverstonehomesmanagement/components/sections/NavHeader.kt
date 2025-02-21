@@ -1,6 +1,7 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.*
+import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.components.widgets.IconButton
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.theme.toSitePalette
@@ -69,7 +70,17 @@ private fun MenuItems() {
     NavLink(Constants.ABOUT_ROUTE, Constants.ABOUT_PAGE_TITLE)
     NavLink(Constants.OFFERINGS_ROUTE, Constants.OFFERINGS_PAGE_TITLE)
     NavLink(Constants.CONTACT_ROUTE, Constants.CONTACT_PAGE_TITLE)
-    NavLink("/", Constants.CALL_NOW_TITLE)
+//    NavLink("/", Constants.CALL_NOW_TITLE)
+    BorderedButton(
+        modifier = Modifier,
+        onClick = { },
+        buttonTitle = Constants.CALL_NOW_TITLE,
+        hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
+        defaultTextColor = Color.NavLinkTextColor.rgb,
+        hoveredTextColor = Color.NavLinkTextColor.rgb,
+        defaultBorderColor = Color.White.rgb,
+        hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
+    )
 }
 
 @Composable

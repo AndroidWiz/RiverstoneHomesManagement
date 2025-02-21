@@ -22,4 +22,8 @@ enum class Color(
     ServiceDescriptionTextColor(hex = "#313b3f", rgb = rgb(49, 59, 63)),
     OurStoryBgColor(hex = "#f0fbe4", rgb = rgb(240, 251, 228)),
     NavLinkTextColor(hex = "#D5EAD8", rgb = rgb(213, 234, 216)),
+
+    HoveredGreenButtonColor(hex = "#54B435", rgb = rgb(84 ,180 ,53)),
+    UnHoveredGreenButtonColor(hex = "#379237", rgb = rgb(55 ,146 ,55)),
+
 }

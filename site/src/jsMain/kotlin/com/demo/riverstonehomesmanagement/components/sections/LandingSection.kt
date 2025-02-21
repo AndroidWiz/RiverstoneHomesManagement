@@ -1,6 +1,7 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
+import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
@@ -108,14 +109,25 @@ fun LandingSection() {
 
             Spacer()
 
-            Button(
+            BorderedButton(
+                modifier = Modifier,
+                onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
+                buttonTitle = "Connect With Us",
+                defaultBgColor = Color.HoveredGreenButtonColor.rgb,
+                hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
+                defaultTextColor = Color.White. rgb,
+                hoveredTextColor = Color.White. rgb,
+                defaultBorderColor = Colors.Transparent,
+                hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
+            )
+            /*Button(
                 onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
                 colorPalette = ColorPalettes.Green,
                 modifier = Modifier.fontFamily("Karla").fontSize(16.px).color(Colors.White),
                 size = ButtonSize.LG,
             ) {
                 Text("Connect With Us")
-            }
+            }*/
         }
     }
 }

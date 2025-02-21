@@ -63,7 +63,7 @@ fun ServicesSection() {
                     val services = getAllServices().take(2)
 
                     repeat(services.size) {
-                        ServiceItem(service = services[it])
+                        ServiceItem(service = services[it], buttonTitle = "Get Started")
                     }
                 }
             }

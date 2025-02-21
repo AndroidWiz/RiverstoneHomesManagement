@@ -47,6 +47,9 @@ kotlin {
             // Uncomment the following if you want access to a large set of font-awesome icons:
              implementation(libs.silk.icons.fa)
 //            implementation(libs.kobwebx.markdown)
+
+            // kotlin bootstrap
+//            implementation("com.github.stevdza-san:KotlinBootstrap:0.1.5")
         }
 
         // Uncomment the following if you pass `includeServer = true` into the `configAsKobwebApplication` call.
