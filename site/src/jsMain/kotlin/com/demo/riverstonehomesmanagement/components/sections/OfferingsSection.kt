@@ -23,7 +23,7 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 
 @Composable
-fun ServicesSection() {
+fun OfferingsSection() {
 
     val ctx = rememberPageContext()
 
@@ -39,7 +39,7 @@ fun ServicesSection() {
             ) {
 
                 SpanText(
-                    text = "Explore Our Services",
+                    text = "Explore Our Offerings",
                     modifier = Modifier
                         .fontFamily("Rubik")
                         .fontWeight(FontWeight.Medium)
@@ -70,7 +70,7 @@ fun ServicesSection() {
                         ServiceItem(
                             service = services[it],
                             buttonTitle = "Get Started",
-                            onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) }
+                            onClick = { ctx.router.navigateTo(Constants.CONTACT_ROUTE) }
                         )
                     }
                 }
