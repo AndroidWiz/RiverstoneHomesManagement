@@ -3,6 +3,7 @@ package com.demo.riverstonehomesmanagement.components.sections
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.about.LandingSectionStyle
 import com.demo.riverstonehomesmanagement.theme.styles.about.LandingSubTitleTextStyle
 import com.demo.riverstonehomesmanagement.theme.styles.about.LandingTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
@@ -36,6 +37,9 @@ fun LandingSection(breakpoint: Breakpoint) {
     }
 
     Box(
+//        modifier = LandingSectionStyle.toModifier()
+
+
         modifier = Modifier
             .fillMaxWidth()
             /*.height(600.px)

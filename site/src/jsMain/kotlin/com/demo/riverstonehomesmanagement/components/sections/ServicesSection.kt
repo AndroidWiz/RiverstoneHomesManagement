@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceItem
 import com.demo.riverstonehomesmanagement.models.getAllServices
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.about.ServiceSectionStyle
 import com.demo.riverstonehomesmanagement.theme.styles.about.ServiceSubTitleTextStyle
 import com.demo.riverstonehomesmanagement.theme.styles.about.ServiceTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
@@ -33,6 +34,7 @@ fun ServicesSection(breakpoint: Breakpoint) {
 
     Div {
         Box(
+//            modifier = ServiceSectionStyle.toModifier().fillMaxWidth(),
             modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center,
         ) {

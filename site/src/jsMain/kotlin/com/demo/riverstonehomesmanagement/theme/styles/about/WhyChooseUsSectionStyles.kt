@@ -47,6 +47,9 @@ val WhyChooseUsTitleTextStyle = CssStyle {
             .color(Color.ServiceTitleTextColor.rgb)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(3.cssRem.times(0.5))
+    }
     Breakpoint.SM {
         Modifier.fontSize(3.cssRem.times(0.5))
     }
@@ -69,6 +72,9 @@ val WhyChooseUsSubTitleTextStyle = CssStyle {
             .color(Color.ServiceSubTitleTextColor.rgb)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(18.px.times(0.8))
+    }
     Breakpoint.SM {
         Modifier.fontSize(18.px.times(0.8))
     }

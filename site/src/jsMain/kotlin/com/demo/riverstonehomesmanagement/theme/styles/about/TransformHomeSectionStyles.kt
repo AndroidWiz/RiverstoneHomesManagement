@@ -46,6 +46,9 @@ val TransformHomeTitleTextStyle = CssStyle {
             .color(Color.White.rgb)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(3.cssRem.times(0.5))
+    }
     Breakpoint.SM {
         Modifier.fontSize(3.cssRem.times(0.5))
     }
@@ -68,6 +71,9 @@ val TransformHomeSubTitleTextStyle = CssStyle {
             .color(Color.White.rgb)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(18.px.times(0.8))
+    }
     Breakpoint.SM {
         Modifier.fontSize(18.px.times(0.8))
     }

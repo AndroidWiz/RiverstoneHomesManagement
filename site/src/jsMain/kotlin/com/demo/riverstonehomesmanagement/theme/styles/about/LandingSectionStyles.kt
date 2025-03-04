@@ -45,6 +45,9 @@ val LandingTitleTextStyle = CssStyle {
             .color(Colors.White)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(4.25.cssRem.times(0.5))
+    }
     Breakpoint.SM {
         Modifier.fontSize(4.25.cssRem.times(0.5))
     }
