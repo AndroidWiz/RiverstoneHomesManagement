@@ -14,6 +14,7 @@ import com.demo.riverstonehomesmanagement.components.layouts.PageLayout
 import com.demo.riverstonehomesmanagement.components.sections.*
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle = CssStyle {
@@ -25,6 +26,9 @@ val HeroContainerStyle = CssStyle {
 @Page
 @Composable
 fun HomePage() {
+
+    val breakpoint = rememberBreakpoint()
+
     PageLayout(Constants.HOME_PAGE_TITLE) {
 //        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
 //            LandingSection()
@@ -36,8 +40,8 @@ fun HomePage() {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(20.px)
                 ) {
-                    LandingSection()
-                    ServicesSection()
+                    LandingSection(breakpoint = breakpoint)
+                    ServicesSection(breakpoint = breakpoint)
                     OurStoryHomeSection()
                     WhyChooseUsSection()
                     TransformYourHomeSection()

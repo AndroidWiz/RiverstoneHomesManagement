@@ -3,6 +3,8 @@ package com.demo.riverstonehomesmanagement.components.sections
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.about.LandingSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.about.LandingTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.*
@@ -16,18 +18,23 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.rememberPageContext
-import com.varabyte.kobweb.silk.components.forms.Button
-import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.theme.colors.ColorPalettes
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
 import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgba
-import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun LandingSection() {
+fun LandingSection(breakpoint: Breakpoint) {
+
+    // padding and alignment dynamically
+    val padding = when (breakpoint) {
+        Breakpoint.SM -> Modifier.padding(topBottom = 80.px, leftRight = 20.px) // small screens
+        Breakpoint.MD -> Modifier.padding(topBottom = 120.px, leftRight = 30.px)
+        else -> Modifier.padding(topBottom = 150.px, leftRight = 40.px) // default, large screen
+    }
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -80,31 +87,39 @@ fun LandingSection() {
 //                .background(rgba(0, 0, 0, 0.67))
 //                .padding { top(100.px) }
                 .position(Position.Relative)
-                .padding(topBottom = 150.px, leftRight = 40.px)
+                .then(padding), // dynamic padding
+//                .padding(topBottom = 150.px, leftRight = 40.px)
 //                .margin { top(100.px) }
-            ,
+//            ,
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(15.px)
+            verticalArrangement = Arrangement.spacedBy(
+                when (breakpoint) {
+                    Breakpoint.SM, Breakpoint.MD -> 10.px
+                    else -> 15.px
+                }
+            )
         ) {
             SpanText(
                 text = "Your Dream Home Awaits",
-                modifier = Modifier
+                /*modifier = Modifier
                     .fontFamily("Rubik")
                     .fontWeight(FontWeight.SemiBold)
-                    .fontSize(4.cssRem)
-                    .color(Colors.White)
+                    .fontSize(4.25.cssRem)
+                    .color(Colors.White)*/
+                modifier = LandingTitleTextStyle.toModifier()
             )
 
             SpanText(
                 text = "Discover expert craftsmanship and personalized solutions for your residential needs anywhere in FL.",
-                modifier = Modifier
+                modifier = LandingSubTitleTextStyle.toModifier()
+                /*modifier = Modifier
                     .fontFamily("Karla")
                     .fontWeight(FontWeight.Light)
                     .lineHeight(25.px)
                     .fontSize(17.px)
                     .textAlign(TextAlign.Center)
                     .color(Colors.White)
-                    .width(480.px)
+                    .width(480.px)*/
             )
 
             Spacer()
@@ -115,8 +130,8 @@ fun LandingSection() {
                 buttonTitle = "Connect With Us",
                 defaultBgColor = Color.HoveredGreenButtonColor.rgb,
                 hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
-                defaultTextColor = Color.White. rgb,
-                hoveredTextColor = Color.White. rgb,
+                defaultTextColor = Color.White.rgb,
+                hoveredTextColor = Color.White.rgb,
                 defaultBorderColor = Colors.Transparent,
                 hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
             )

@@ -15,7 +15,6 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.Modifier.Companion.then
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
@@ -173,18 +172,20 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
         Modifier
             .setVariable(OverlayVars.BackgroundColor, Colors.Transparent)
             .onClick { close() }
+            .zIndex(1) // fixes the issue partially, need to remove hamburger icon
     ) {
         key(menuState) { // Force recompute animation parameters when close button is clicked
             Column(
                 Modifier
                     .fillMaxHeight()
-                    .width(clamp(8.cssRem, 33.percent, 10.cssRem))
+                    .width(clamp(16.cssRem, 33.percent, 18.cssRem))
                     .align(Alignment.CenterEnd)
                     // Close button will appear roughly over the hamburger button, so the user can close
                     // things without moving their finger / cursor much.
                     .padding(top = 1.cssRem, leftRight = 1.cssRem)
                     .gap(1.5.cssRem)
-                    .backgroundColor(ColorMode.current.toSitePalette().nearBackground)
+//                    .backgroundColor(ColorMode.current.toSitePalette().nearBackground)
+                    .background(rgba(255, 255, 255, 0f))
                     .animation(
                         SideMenuSlideInAnim.toAnimation(
                             duration = 200.ms,

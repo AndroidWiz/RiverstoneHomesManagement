@@ -3,21 +3,16 @@ package com.demo.riverstonehomesmanagement.components.sections
 import androidx.compose.runtime.*
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.theme.Color
-import com.demo.riverstonehomesmanagement.utils.Constants
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.foundation.layout.Arrangement
-import com.varabyte.kobweb.compose.foundation.layout.Box
-import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.Row
+import com.varabyte.kobweb.compose.foundation.layout.*
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.text.SpanText
-import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.TextArea
 import org.jetbrains.compose.web.dom.TextInput
@@ -28,13 +23,18 @@ fun ReachOutSection(modifier: Modifier = Modifier) {
     val ctx = rememberPageContext()
 
     Box(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
+            .display(DisplayStyle.Flex)
+            .justifyContent(JustifyContent.Center),
+        contentAlignment = Alignment.Center,
     ) {
         Row(
             modifier = modifier
+                .minWidth(100.vh)
                 .fillMaxWidth()
-                .padding(leftRight = 200.px, topBottom = 50.px),
-            horizontalArrangement = Arrangement.spacedBy(20.px),
+                .padding(leftRight = 100.px, topBottom = 50.px),
+            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             ReachOutInfo(modifier.weight(1f))
@@ -80,7 +80,7 @@ fun ReachOutInfo(modifier: Modifier = Modifier) {
                                 .fontWeight(FontWeight.Light)
                                 .lineHeight(25.px)
                                 .fontSize(17.px)
-                                .textAlign(TextAlign.Center)
+                                .textAlign(TextAlign.Justify)
                                 .color(Color.ServiceSubTitleTextColor.rgb)
                         )
                     }
@@ -103,7 +103,7 @@ fun ReachOutInfo(modifier: Modifier = Modifier) {
                                 .fontWeight(FontWeight.Light)
                                 .lineHeight(25.px)
                                 .fontSize(17.px)
-                                .textAlign(TextAlign.Center)
+                                .textAlign(TextAlign.Justify)
                                 .color(Color.ServiceSubTitleTextColor.rgb)
                         )
                     }
@@ -126,7 +126,7 @@ fun ReachOutInfo(modifier: Modifier = Modifier) {
                                 .fontWeight(FontWeight.Light)
                                 .lineHeight(25.px)
                                 .fontSize(17.px)
-                                .textAlign(TextAlign.Center)
+                                .textAlign(TextAlign.Justify)
                                 .color(Color.ServiceSubTitleTextColor.rgb)
                         )
                     }
@@ -170,15 +170,16 @@ fun ReachOutForm(modifier: Modifier = Modifier) {
             // submit button
             BorderedButton(
                 modifier = Modifier,
-                onClick = {  },
+                onClick = { },
                 buttonTitle = "Send Message",
                 defaultBgColor = Color.HoveredGreenButtonColor.rgb,
                 hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
-                defaultTextColor = Color.White. rgb,
-                hoveredTextColor = Color.White. rgb,
+                defaultTextColor = Color.White.rgb,
+                hoveredTextColor = Color.White.rgb,
                 defaultBorderColor = Colors.Transparent,
                 hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
             )
         }
     }
 }
+
