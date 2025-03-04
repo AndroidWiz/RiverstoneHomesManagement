@@ -42,9 +42,13 @@ val ServiceTitleTextStyle = CssStyle {
             .fontFamily("Rubik")
             .fontWeight(FontWeight.Medium)
             .fontSize(3.cssRem)
+            .textAlign(TextAlign.Center)
             .color(Color.ServiceTitleTextColor.rgb)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(3.cssRem.times(0.5))
+    }
     Breakpoint.SM {
         Modifier.fontSize(3.cssRem.times(0.5))
     }
@@ -67,6 +71,9 @@ val ServiceSubTitleTextStyle = CssStyle {
             .color(Color.ServiceSubTitleTextColor.rgb)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(17.px.times(0.8))
+    }
     Breakpoint.SM {
         Modifier.fontSize(17.px.times(0.8))
     }

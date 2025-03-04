@@ -40,10 +40,14 @@ val LandingTitleTextStyle = CssStyle {
         Modifier
             .fontSize(4.25.cssRem)
             .fontFamily("Rubik")
+            .textAlign(TextAlign.Center)
             .fontWeight(FontWeight.SemiBold)
             .color(Colors.White)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(4.25.cssRem.times(0.5))
+    }
     Breakpoint.SM {
         Modifier.fontSize(4.25.cssRem.times(0.5))
     }
@@ -67,8 +71,11 @@ val LandingSubTitleTextStyle = CssStyle {
             .width(550.px)
     }
 
+    Breakpoint.ZERO {
+        Modifier.fontSize(18.px.times(0.8)).width(250.px)
+    }
     Breakpoint.SM {
-        Modifier.fontSize(18.px.times(0.8))
+        Modifier.fontSize(18.px.times(0.8)).width(250.px)
     }
     Breakpoint.MD {
         Modifier.fontSize(18.px)
