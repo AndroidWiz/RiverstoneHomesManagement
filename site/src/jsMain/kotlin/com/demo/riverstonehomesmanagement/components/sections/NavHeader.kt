@@ -8,6 +8,7 @@ import com.demo.riverstonehomesmanagement.theme.toSitePalette
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.Visibility
 import com.varabyte.kobweb.compose.css.functions.blur
 import com.varabyte.kobweb.compose.css.functions.clamp
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -46,17 +47,18 @@ val NavHeaderStyle = CssStyle.base {
         .styleModifier {
             property("-webkit-backdrop-filter", "blur( 4px )")
         }
-        .zIndex(1)
+//        .zIndex(1)
 }
 
 @Composable
-private fun NavLink(path: String, text: String) {
+private fun NavLink(path: String, text: String, color:  CSSColorValue) {
     Link(
         path = path,
         text = text,
         variant = UndecoratedLinkVariant.then(UncoloredLinkVariant),
         modifier = Modifier
-            .color(Color.NavLinkTextColor.rgb)
+//            .color(Color.NavLinkTextColor.rgb)
+            .color(color)
             .fontFamily("Karla")
             .fontSize(16.px)
             .fontWeight(FontWeight.Light)
@@ -64,11 +66,14 @@ private fun NavLink(path: String, text: String) {
 }
 
 @Composable
-private fun MenuItems() {
-    NavLink(Constants.HOME_ROUTE, Constants.HOME_PAGE_TITLE)
-    NavLink(Constants.ABOUT_ROUTE, Constants.ABOUT_PAGE_TITLE)
-    NavLink(Constants.OFFERINGS_ROUTE, Constants.OFFERINGS_PAGE_TITLE)
-    NavLink(Constants.CONTACT_ROUTE, Constants.CONTACT_PAGE_TITLE)
+private fun MenuItems(isSideMenu: Boolean = false) {
+//    val linkColor = if (isSideMenu) Color.OurStoryBgColor.rgb else Color.NavLinkTextColor.rgb
+    val linkColor = if (isSideMenu) Color.ServiceTitleTextColor.rgb else Color.NavLinkTextColor.rgb
+
+    NavLink(path = Constants.HOME_ROUTE, text = Constants.HOME_PAGE_TITLE, color = linkColor)
+    NavLink(path = Constants.ABOUT_ROUTE, text = Constants.ABOUT_PAGE_TITLE, color = linkColor)
+    NavLink(path = Constants.OFFERINGS_ROUTE, text = Constants.OFFERINGS_PAGE_TITLE, color = linkColor)
+    NavLink(path = Constants.CONTACT_ROUTE, text = Constants.CONTACT_PAGE_TITLE, color = linkColor)
 //    NavLink("/", Constants.CALL_NOW_TITLE)
     BorderedButton(
         modifier = Modifier,
@@ -173,6 +178,7 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
             .setVariable(OverlayVars.BackgroundColor, Colors.Transparent)
             .onClick { close() }
             .zIndex(1) // fixes the issue partially, need to remove hamburger icon
+//            .zIndex(10)
     ) {
         key(menuState) { // Force recompute animation parameters when close button is clicked
             Column(
@@ -185,7 +191,7 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
                     .padding(top = 1.cssRem, leftRight = 1.cssRem)
                     .gap(1.5.cssRem)
 //                    .backgroundColor(ColorMode.current.toSitePalette().nearBackground)
-                    .background(rgba(255, 255, 255, 0f))
+                    .backgroundColor(rgb(255, 255, 255))
                     .animation(
                         SideMenuSlideInAnim.toAnimation(
                             duration = 200.ms,

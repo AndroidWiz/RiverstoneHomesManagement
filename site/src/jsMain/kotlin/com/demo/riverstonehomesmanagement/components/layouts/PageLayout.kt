@@ -7,6 +7,7 @@ import com.demo.riverstonehomesmanagement.components.sections.NavHeader
 import com.demo.riverstonehomesmanagement.components.widgets.BackToTopButton
 import com.demo.riverstonehomesmanagement.components.widgets.BackgroundImage
 import com.demo.riverstonehomesmanagement.utils.Res
+import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -94,15 +95,20 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
     }
 
     Surface(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().overflow(Overflow.Hidden),
 //        color = { rgb(255, 255, 255) } // Fixed light background color
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Top
         ) {
-            NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px))
-            Div({ style { flex(1) } }) { content() }
+            NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px).zIndex(1).maxWidth(100.percent))
+            Div({
+                style {
+                    flex(1)
+                    maxWidth(100.percent)
+                }
+            }) { content() }
             Footer(breakpoint = breakpoint, modifier = Modifier.fillMaxWidth().gridRow(2))
         }
     }
