@@ -5,6 +5,8 @@ import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceItem
 import com.demo.riverstonehomesmanagement.models.getAllServices
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.about.TransformHomeSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.about.TransformHomeTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.*
@@ -24,6 +26,7 @@ import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorPalettes
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.cssRem
@@ -68,22 +71,24 @@ fun TransformYourHomeSection(modifier: Modifier = Modifier) {
 
                 SpanText(
                     text = "Transform Your Home Today",
-                    modifier = modifier
+                    modifier = TransformHomeTitleTextStyle.toModifier()
+                    /*modifier = modifier
                         .fontFamily("Rubik")
                         .fontWeight(FontWeight.Medium)
                         .fontSize(3.cssRem)
-                        .color(Color.White.rgb)
+                        .color(Color.White.rgb)*/
                 )
 
                 SpanText(
                     text = "Contact us now to start the journey towards your dream home with Riverstone Homes Management. Let’s build together.",
-                    modifier = modifier
+                    modifier = TransformHomeSubTitleTextStyle.toModifier()
+                    /*modifier = modifier
                         .fontFamily("Karla")
                         .fontWeight(FontWeight.Light)
                         .lineHeight(25.px)
                         .fontSize(17.px)
                         .textAlign(TextAlign.Center)
-                        .color(Color.White.rgb)
+                        .color(Color.White.rgb)*/
                 )
 
                 Spacer()

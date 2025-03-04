@@ -1,5 +1,6 @@
 package com.demo.riverstonehomesmanagement.theme.styles.about
 
+import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -8,8 +9,9 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Text
 
-val LandingSectionStyle = CssStyle {
+val WhyChooseUsSectionStyle = CssStyle {
     base {
         Modifier
             .width(100.percent)
@@ -35,36 +37,36 @@ val LandingSectionStyle = CssStyle {
     }
 }
 
-val LandingTitleTextStyle = CssStyle {
+val WhyChooseUsTitleTextStyle = CssStyle {
     base {
         Modifier
-            .fontSize(4.25.cssRem)
             .fontFamily("Rubik")
+            .fontWeight(FontWeight.Medium)
+            .fontSize(3.cssRem)
             .textAlign(TextAlign.Center)
-            .fontWeight(FontWeight.SemiBold)
-            .color(Colors.White)
+            .color(Color.ServiceTitleTextColor.rgb)
     }
 
     Breakpoint.SM {
-        Modifier.fontSize(4.25.cssRem.times(0.5))
+        Modifier.fontSize(3.cssRem.times(0.5))
     }
     Breakpoint.MD {
-        Modifier.fontSize(4.25.cssRem)
+        Modifier.fontSize(3.cssRem)
     }
     Breakpoint.LG {
-        Modifier.fontSize(4.25.cssRem.times(1.1))
+        Modifier.fontSize(3.cssRem.times(1.1))
     }
 }
 
-val LandingSubTitleTextStyle = CssStyle {
+val WhyChooseUsSubTitleTextStyle = CssStyle {
     base {
         Modifier
             .fontFamily("Karla")
             .fontWeight(FontWeight.Light)
             .lineHeight(25.px)
-            .fontSize(18.px)
+            .fontSize(17.px)
             .textAlign(TextAlign.Center)
-            .color(Colors.White)
+            .color(Color.ServiceSubTitleTextColor.rgb)
     }
 
     Breakpoint.SM {

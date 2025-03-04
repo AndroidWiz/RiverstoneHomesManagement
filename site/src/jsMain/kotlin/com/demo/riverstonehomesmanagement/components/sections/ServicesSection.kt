@@ -55,6 +55,11 @@ fun ServicesSection(breakpoint: Breakpoint) {
                 SpanText(
                     text = "Discover the range of high-quality services we offer to meet all your residential construction needs.",
                     modifier = ServiceSubTitleTextStyle.toModifier()
+                        .padding(when(breakpoint){
+                            Breakpoint.ZERO,
+                            Breakpoint.SM -> 15.px
+                            else -> 0.px
+                        })
                     /* modifier = Modifier
                         .fontFamily("Karla")
                         .fontWeight(FontWeight.Light)

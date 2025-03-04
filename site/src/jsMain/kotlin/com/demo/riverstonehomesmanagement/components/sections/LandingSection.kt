@@ -112,6 +112,14 @@ fun LandingSection(breakpoint: Breakpoint) {
             SpanText(
                 text = "Discover expert craftsmanship and personalized solutions for your residential needs anywhere in FL.",
                 modifier = LandingSubTitleTextStyle.toModifier()
+                    .width(
+                        when (breakpoint) {
+                            Breakpoint.ZERO,
+                            Breakpoint.SM -> 250.px
+
+                            else -> 550.px
+                        }
+                    )
                 /*modifier = Modifier
                     .fontFamily("Karla")
                     .fontWeight(FontWeight.Light)

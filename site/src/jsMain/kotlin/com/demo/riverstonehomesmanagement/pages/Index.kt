@@ -43,7 +43,7 @@ fun HomePage() {
                     LandingSection(breakpoint = breakpoint)
                     ServicesSection(breakpoint = breakpoint)
                     OurStoryHomeSection()
-                    WhyChooseUsSection()
+                    WhyChooseUsSection(breakpoint = breakpoint)
                     TransformYourHomeSection()
                 }
             }
