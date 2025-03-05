@@ -210,7 +210,7 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
                     Modifier.padding(right = 0.75.cssRem).gap(1.5.cssRem).fontSize(1.4.cssRem),
                     horizontalAlignment = Alignment.End
                 ) {
-                    MenuItems()
+                    MenuItems(isSideMenu = true)
                 }
             }
         }

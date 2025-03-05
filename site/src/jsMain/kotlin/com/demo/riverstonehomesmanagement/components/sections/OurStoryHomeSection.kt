@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceImage
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.about.OurStorySubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.about.OurStoryTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -16,6 +18,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.varabyte.kobweb.silk.theme.shapes.Rect
 import com.varabyte.kobweb.silk.theme.shapes.clip
@@ -24,10 +27,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 
 @Composable
-fun OurStoryHomeSection(modifier: Modifier = Modifier) {
+fun OurStoryHomeSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 
     val ctx = rememberPageContext()
-    val breakpoint = rememberBreakpoint()
 
     when (breakpoint) {
 
@@ -41,42 +43,48 @@ fun OurStoryHomeSection(modifier: Modifier = Modifier) {
                 ) {
                     Column(
                         modifier = modifier.fillMaxWidth().margin { topBottom(70.px) },
-                        verticalArrangement = Arrangement.spacedBy(10.px),
+                        verticalArrangement = Arrangement.spacedBy(15.px),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
 
 
-                        Column(
-                            verticalArrangement = Arrangement.spacedBy(20.px)
-                        ) {
-                            SpanText(
-                                text = "Our Story",
-                                modifier = modifier
-                                    .fontFamily("Rubik")
-                                    .fontWeight(FontWeight.Medium)
-                                    .fontSize(1.75.cssRem)
-                                    .color(Color.ServiceTitleTextColor.rgb)
-                            )
+//                        Column(
+//                            verticalArrangement = Arrangement.spacedBy(20.px),
+//                            horizontalAlignment = Alignment.CenterHorizontally,
+//                        ) {
+                        SpanText(
+                            text = "Our Story",
+                            modifier = OurStoryTitleTextStyle.toModifier().textAlign(TextAlign.Center)
+                            /*modifier = modifier
+                                .fontFamily("Rubik")
+                                .fontWeight(FontWeight.Medium)
+                                .fontSize(1.75.cssRem)
+                                .color(Color.ServiceTitleTextColor.rgb)*/
+                        )
 
-                            SpanText(
-                                text = "With a lot of industry experience, Riverstone Homes Management excels in delivering top-quality residential solutions. Our expertise ensures your project is in safe hands.",
-                                modifier = modifier
-                                    .fillMaxWidth()
-                                    .fontFamily("Karla")
-                                    .fontWeight(FontWeight.Light)
-                                    .lineHeight(25.px)
-                                    .fontSize(17.px)
-                                    .textAlign(TextAlign.Start)
-                                    .color(Color.ServiceSubTitleTextColor.rgb)
-                            )
+                        SpanText(
+                            text = "With a lot of industry experience, Riverstone Homes Management excels in delivering top-quality residential solutions. Our expertise ensures your project is in safe hands.",
+                            modifier = OurStorySubTitleTextStyle.toModifier().textAlign(TextAlign.Center)
+                            /*modifier = modifier
+                                .fillMaxWidth()
+                                .fontFamily("Karla")
+                                .fontWeight(FontWeight.Light)
+                                .lineHeight(25.px)
+                                .fontSize(17.px)
+                                .textAlign(TextAlign.Start)
+                                .color(Color.ServiceSubTitleTextColor.rgb)*/
+                        )
 
-                            BorderedButton(
-                                modifier = modifier,
-                                onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
-                                buttonTitle = "Learn More"
-                            )
-                        }
+                        Spacer()
 
+                        BorderedButton(
+                            modifier = modifier,
+                            onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
+                            buttonTitle = "Learn More"
+                        )
+//                        }
+
+                        Spacer()
 
                         ServiceImage(
                             src = Res.OUT_STORY_IMAGE,
@@ -113,23 +121,25 @@ fun OurStoryHomeSection(modifier: Modifier = Modifier) {
                         ) {
                             SpanText(
                                 text = "Our Story",
-                                modifier = modifier
+                                modifier = OurStoryTitleTextStyle.toModifier().textAlign(TextAlign.Start)
+                                /*modifier = modifier
                                     .fontFamily("Rubik")
                                     .fontWeight(FontWeight.Medium)
                                     .fontSize(1.75.cssRem)
-                                    .color(Color.ServiceTitleTextColor.rgb)
+                                    .color(Color.ServiceTitleTextColor.rgb)*/
                             )
 
                             SpanText(
                                 text = "With a lot of industry experience, Riverstone Homes Management excels in delivering top-quality residential solutions. Our expertise ensures your project is in safe hands.",
-                                modifier = modifier
+                                modifier = OurStorySubTitleTextStyle.toModifier().textAlign(TextAlign.Start)
+                                /*modifier = modifier
                                     .fillMaxWidth()
                                     .fontFamily("Karla")
                                     .fontWeight(FontWeight.Light)
                                     .lineHeight(25.px)
                                     .fontSize(17.px)
                                     .textAlign(TextAlign.Start)
-                                    .color(Color.ServiceSubTitleTextColor.rgb)
+                                    .color(Color.ServiceSubTitleTextColor.rgb)*/
                             )
 
                             BorderedButton(
