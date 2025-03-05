@@ -3,6 +3,8 @@ package com.demo.riverstonehomesmanagement.components.widgets
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.models.Services
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.offerings.ServiceItemSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.offerings.ServiceItemTitleTextStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -15,6 +17,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.varabyte.kobweb.silk.theme.shapes.Rect
 import com.varabyte.kobweb.silk.theme.shapes.clip
@@ -56,23 +59,25 @@ fun ServiceItem(
                 ) {
                     SpanText(
                         text = service.title.uppercase(),
-                        modifier = modifier
+                        modifier = ServiceItemTitleTextStyle.toModifier().textAlign(TextAlign.Center)
+                        /*modifier = modifier
                             .fontFamily("Rubik")
                             .fontWeight(FontWeight.Medium)
                             .fontSize(1.75.cssRem)
-                            .color(Color.ServiceTitleTextColor.rgb)
+                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = service.description,
-                        modifier = modifier
+                        modifier = ServiceItemSubTitleTextStyle.toModifier().textAlign(TextAlign.Justify)
+                        /*modifier = modifier
                             .fillMaxWidth()
                             .fontFamily("Karla")
                             .fontWeight(FontWeight.Light)
                             .lineHeight(25.px)
                             .fontSize(17.px)
                             .textAlign(TextAlign.Start)
-                            .color(Color.ServiceSubTitleTextColor.rgb)
+                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
 
                     // button
@@ -126,23 +131,25 @@ fun ServiceItem(
                 ) {
                     SpanText(
                         text = service.title.uppercase(),
-                        modifier = modifier
+                        modifier = ServiceItemTitleTextStyle.toModifier().textAlign(TextAlign.Start)
+                        /*modifier = modifier
                             .fontFamily("Rubik")
                             .fontWeight(FontWeight.Medium)
                             .fontSize(1.75.cssRem)
-                            .color(Color.ServiceTitleTextColor.rgb)
+                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = service.description,
-                        modifier = modifier
+                        modifier = ServiceItemSubTitleTextStyle.toModifier().textAlign(TextAlign.Start)
+                        /*modifier = modifier
                             .fillMaxWidth()
                             .fontFamily("Karla")
                             .fontWeight(FontWeight.Light)
                             .lineHeight(25.px)
                             .fontSize(17.px)
                             .textAlign(TextAlign.Start)
-                            .color(Color.ServiceSubTitleTextColor.rgb)
+                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
 
                     // button
