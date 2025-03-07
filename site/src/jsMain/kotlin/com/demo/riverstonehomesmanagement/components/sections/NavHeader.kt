@@ -36,6 +36,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
 
 val NavHeaderStyle = CssStyle.base {
@@ -51,7 +52,7 @@ val NavHeaderStyle = CssStyle.base {
 }
 
 @Composable
-private fun NavLink(path: String, text: String, color:  CSSColorValue) {
+private fun NavLink(path: String, text: String, color: CSSColorValue) {
     Link(
         path = path,
         text = text,
@@ -66,9 +67,12 @@ private fun NavLink(path: String, text: String, color:  CSSColorValue) {
 }
 
 @Composable
-private fun MenuItems(isSideMenu: Boolean = false) {
+private fun MenuItems(isSideMenu: Boolean = false, scrollY: Int) {
 //    val linkColor = if (isSideMenu) Color.OurStoryBgColor.rgb else Color.NavLinkTextColor.rgb
-    val linkColor = if (isSideMenu) Color.ServiceTitleTextColor.rgb else Color.NavLinkTextColor.rgb
+//    val linkColor = if (isSideMenu) Color.ServiceTitleTextColor.rgb else Color.NavLinkTextColor.rgb
+    val linkColor =
+        if (isSideMenu) Color.ServiceTitleTextColor.rgb else if (scrollY > 500) Color.ServiceTitleTextColor.rgb else Color.NavLinkTextColor.rgb
+
 
     NavLink(path = Constants.HOME_ROUTE, text = Constants.HOME_PAGE_TITLE, color = linkColor)
     NavLink(path = Constants.ABOUT_ROUTE, text = Constants.ABOUT_PAGE_TITLE, color = linkColor)
@@ -80,9 +84,11 @@ private fun MenuItems(isSideMenu: Boolean = false) {
         onClick = { },
         buttonTitle = Constants.CALL_NOW_TITLE,
         hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
-        defaultTextColor = Color.NavLinkTextColor.rgb,
+        defaultTextColor = linkColor,
+//        defaultTextColor = Color.NavLinkTextColor.rgb,
         hoveredTextColor = Color.NavLinkTextColor.rgb,
-        defaultBorderColor = Color.White.rgb,
+        defaultBorderColor = linkColor,
+//        defaultBorderColor = Color.White.rgb,
         hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
     )
 }
@@ -127,6 +133,15 @@ enum class SideMenuState {
 
 @Composable
 fun NavHeader(modifier: Modifier = Modifier) {
+
+    var scrollY by remember { mutableStateOf(0) }
+
+    LaunchedEffect(Unit) {
+        window.addEventListener("scroll", {
+            scrollY = window.scrollY.toInt()
+        })
+    }
+
     Row(NavHeaderStyle.toModifier().fillMaxWidth().then(modifier), verticalAlignment = Alignment.CenterVertically) {
         Spacer()
         Link(Constants.HOME_ROUTE) {
@@ -144,7 +159,7 @@ fun NavHeader(modifier: Modifier = Modifier) {
         Spacer()
 
         Row(Modifier.gap(1.5.cssRem).displayIfAtLeast(Breakpoint.MD), verticalAlignment = Alignment.CenterVertically) {
-            MenuItems()
+            MenuItems(scrollY = scrollY)
         }
 
         Spacer()
@@ -210,7 +225,7 @@ private fun SideMenu(menuState: SideMenuState, close: () -> Unit, onAnimationEnd
                     Modifier.padding(right = 0.75.cssRem).gap(1.5.cssRem).fontSize(1.4.cssRem),
                     horizontalAlignment = Alignment.End
                 ) {
-                    MenuItems(isSideMenu = true)
+                    MenuItems(isSideMenu = true, scrollY = 0)
                 }
             }
         }
