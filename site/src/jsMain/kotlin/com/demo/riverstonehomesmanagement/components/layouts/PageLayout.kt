@@ -90,7 +90,8 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
     }
 
     Surface(
-        modifier = Modifier.fillMaxSize().overflow(Overflow.Hidden),
+//        modifier = Modifier.fillMaxSize().overflow(Overflow.Hidden),
+        modifier = Modifier.fillMaxWidth().overflow(Overflow.Hidden),
 //        color = { rgb(255, 255, 255) } // Fixed light background color
     ) {
         Column(

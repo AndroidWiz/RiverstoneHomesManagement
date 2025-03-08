@@ -7,7 +7,6 @@ import com.demo.riverstonehomesmanagement.utils.Constants
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.gap
@@ -33,46 +32,41 @@ fun HomePage() {
     PageLayout(Constants.HOME_PAGE_TITLE) {
 //        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
 //            LandingSection()
+        Box {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(20.px)
+            ) {
+                LandingSection(breakpoint = breakpoint)
+                /*when (breakpoint) {
+                    Breakpoint.ZERO,
+                    Breakpoint.SM,
+                    Breakpoint.MD -> {
+                        Spacer()
+                    }
 
-        Row(
-            Modifier.fillMaxWidth()
-        ) {
-            Box {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(20.px)
-                ) {
-                    LandingSection(breakpoint = breakpoint)
-                    /*when (breakpoint) {
-                        Breakpoint.ZERO,
-                        Breakpoint.SM,
-                        Breakpoint.MD -> {
-                            Spacer()
-                        }
+                    else -> {
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                    }
+                }*/
 
-                        else -> {
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                        }
-                    }*/
-
-                    ServicesSection(breakpoint = breakpoint)
-                    OurStoryHomeSection(breakpoint = breakpoint)
-                    WhyChooseUsSection(breakpoint = breakpoint)
-                    TransformYourHomeSection()
-                }
+                ServicesSection(breakpoint = breakpoint)
+                OurStoryHomeSection(breakpoint = breakpoint)
+                WhyChooseUsSection(breakpoint = breakpoint)
+                TransformYourHomeSection()
             }
         }
     }

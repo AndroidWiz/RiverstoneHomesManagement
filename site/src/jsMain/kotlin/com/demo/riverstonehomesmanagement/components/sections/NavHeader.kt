@@ -93,7 +93,7 @@ private fun MenuItems(isSideMenu: Boolean = false, scrollY: Int) {
 @Composable
 private fun HamburgerButton(onClick: () -> Unit) {
     IconButton(onClick) {
-        HamburgerIcon()
+        HamburgerIcon(modifier = Modifier.color(Color.NavLinkTextColor.rgb))
     }
 }
 

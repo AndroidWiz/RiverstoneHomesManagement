@@ -5,40 +5,68 @@ import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.foundation.layout.*
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.TextArea
 import org.jetbrains.compose.web.dom.TextInput
 
 @Composable
-fun ReachOutSection(modifier: Modifier = Modifier) {
+fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 
     val ctx = rememberPageContext()
+
+    // padding and alignment dynamically
+    val padding = when (breakpoint) {
+        Breakpoint.SM -> Modifier.padding(topBottom = 80.px, leftRight = 20.px) // small screens
+        Breakpoint.MD -> Modifier.padding(topBottom = 120.px, leftRight = 30.px)
+        else -> Modifier.padding(topBottom = 150.px, leftRight = 50.px) // default, large screen
+    }
 
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .display(DisplayStyle.Flex)
             .justifyContent(JustifyContent.Center),
         contentAlignment = Alignment.Center,
     ) {
-        Row(
-            modifier = modifier
-                .minWidth(100.vh)
-                .fillMaxWidth()
-                .padding(leftRight = 100.px, topBottom = 50.px),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            ReachOutInfo(modifier.weight(1f))
-            ReachOutForm(modifier.weight(1f))
+        when (breakpoint) {
+            Breakpoint.ZERO, Breakpoint.SM, Breakpoint.MD -> {
+                Column(
+                    modifier = modifier
+                        .minWidth(100.vw)
+                        .fillMaxWidth()
+                        .then(padding),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    ReachOutInfo(Modifier.fillMaxWidth())
+                    ReachOutForm(Modifier.fillMaxWidth())
+                }
+            }
+            else -> {
+                Row(
+                    modifier = modifier
+                        .minWidth(100.vh)
+                        .fillMaxWidth()
+                        .then(padding),
+//                .padding(leftRight = 100.px, topBottom = 50.px),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ReachOutInfo(modifier.fillMaxWidth().weight(1f))
+                    ReachOutForm(modifier.fillMaxWidth().weight(1f))
+                }
+            }
         }
     }
 }

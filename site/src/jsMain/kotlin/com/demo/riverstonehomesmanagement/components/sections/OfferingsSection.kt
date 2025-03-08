@@ -3,27 +3,30 @@ package com.demo.riverstonehomesmanagement.components.sections
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceItem
 import com.demo.riverstonehomesmanagement.models.getAllServices
-import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.OfferingsSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.OfferingsTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
-import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 
 @Composable
-fun OfferingsSection() {
+fun OfferingsSection(breakpoint: Breakpoint) {
 
     val ctx = rememberPageContext()
 
@@ -40,22 +43,24 @@ fun OfferingsSection() {
 
                 SpanText(
                     text = "Explore Our Offerings",
-                    modifier = Modifier
+                    modifier = OfferingsTitleTextStyle.toModifier()
+                    /*modifier = Modifier
                         .fontFamily("Rubik")
                         .fontWeight(FontWeight.Medium)
                         .fontSize(3.cssRem)
-                        .color(Color.ServiceTitleTextColor.rgb)
+                        .color(Color.ServiceTitleTextColor.rgb)*/
                 )
 
                 SpanText(
                     text = "Discover the range of high-quality services we offer to meet all your residential construction needs.",
-                    modifier = Modifier
+                    modifier = OfferingsSubTitleTextStyle.toModifier()
+                    /*modifier = Modifier
                         .fontFamily("Karla")
                         .fontWeight(FontWeight.Light)
                         .lineHeight(25.px)
                         .fontSize(17.px)
                         .textAlign(TextAlign.Center)
-                        .color(Color.ServiceSubTitleTextColor.rgb)
+                        .color(Color.ServiceSubTitleTextColor.rgb)*/
                 )
 
                 Spacer()

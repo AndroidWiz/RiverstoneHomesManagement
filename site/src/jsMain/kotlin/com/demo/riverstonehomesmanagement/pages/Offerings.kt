@@ -13,6 +13,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.core.Page
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 
@@ -20,6 +21,9 @@ import org.jetbrains.compose.web.dom.Div
 @Page
 @Composable
 fun OfferingsPage() {
+
+    val breakpoint = rememberBreakpoint()
+
     PageLayout(Constants.OFFERINGS_PAGE_TITLE) {
 
         Div {
@@ -30,8 +34,8 @@ fun OfferingsPage() {
                     Column(
                         verticalArrangement = Arrangement.spacedBy(20.px)
                     ) {
-                        OfferingsTopSection()
-                        OfferingsSection()
+                        OfferingsTopSection(breakpoint = breakpoint)
+                        OfferingsSection(breakpoint = breakpoint)
                         TransformYourHomeSection()
                     }
                 }
