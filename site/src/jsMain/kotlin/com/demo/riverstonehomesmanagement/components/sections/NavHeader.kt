@@ -132,7 +132,7 @@ enum class SideMenuState {
 }
 
 @Composable
-fun NavHeader(modifier: Modifier = Modifier) {
+fun NavHeader(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 
     var scrollY by remember { mutableStateOf(0) }
 
@@ -149,7 +149,21 @@ fun NavHeader(modifier: Modifier = Modifier) {
             Image(
                 src = Res.LOGO,
                 description = "Riverstone Homes Management Logo",
-                modifier = Modifier.width(12.5.cssRem).height(3.938.cssRem).display(DisplayStyle.Block)
+//                modifier = Modifier.width(12.5.cssRem).height(3.938.cssRem).display(DisplayStyle.Block)
+                modifier = Modifier
+                    .width(
+                        when (breakpoint) {
+                            Breakpoint.ZERO, Breakpoint.SM, Breakpoint.MD -> (12.5.cssRem).times(0.7)
+                                else -> 12.5.cssRem
+                        }
+                    )
+                .height(
+                    when (breakpoint) {
+                        Breakpoint.ZERO, Breakpoint.SM, Breakpoint.MD -> (3.938.cssRem).times(0.7)
+                        else -> 3.938.cssRem
+                    }
+                )
+                .display(DisplayStyle.Block)
             )
         }
 

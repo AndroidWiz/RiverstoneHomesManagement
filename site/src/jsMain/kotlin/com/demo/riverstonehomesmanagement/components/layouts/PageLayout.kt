@@ -102,7 +102,10 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Top
         ) {
-            NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px).zIndex(1).maxWidth(100.percent))
+            NavHeader(
+                modifier = Modifier.position(Position.Fixed).top(0.px).zIndex(1).maxWidth(100.percent),
+                breakpoint = breakpoint
+            )
             Div({
                 style {
                     flex(1)
