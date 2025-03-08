@@ -1,15 +1,11 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
-import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceImage
-import com.demo.riverstonehomesmanagement.theme.Color
-import com.demo.riverstonehomesmanagement.theme.styles.about.OurStoryAboutDescriptionTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.OurStoryAboutSubTitleTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.OurStoryAboutTitleTextStyle
-import com.demo.riverstonehomesmanagement.utils.Constants
+import com.demo.riverstonehomesmanagement.theme.styles.OurStoryAboutDescriptionTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.OurStoryAboutSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.OurStoryAboutTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Res
-import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -19,13 +15,11 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.shapes.Rect
 import com.varabyte.kobweb.silk.theme.shapes.clip
-import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 

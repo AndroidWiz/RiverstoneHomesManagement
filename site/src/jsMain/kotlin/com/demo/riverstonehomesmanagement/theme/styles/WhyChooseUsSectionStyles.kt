@@ -1,16 +1,15 @@
-package com.demo.riverstonehomesmanagement.theme.styles.about
+package com.demo.riverstonehomesmanagement.theme.styles
 
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.*
 
-val TransformHomeSectionStyle = CssStyle {
+val WhyChooseUsSectionStyle = CssStyle {
     base {
         Modifier
             .width(100.percent)
@@ -36,14 +35,14 @@ val TransformHomeSectionStyle = CssStyle {
     }
 }
 
-val TransformHomeTitleTextStyle = CssStyle {
+val WhyChooseUsTitleTextStyle = CssStyle {
     base {
         Modifier
             .fontFamily("Rubik")
             .fontWeight(FontWeight.Medium)
             .fontSize(3.cssRem)
             .textAlign(TextAlign.Center)
-            .color(Color.White.rgb)
+            .color(Color.ServiceTitleTextColor.rgb)
     }
 
     Breakpoint.ZERO {
@@ -60,7 +59,7 @@ val TransformHomeTitleTextStyle = CssStyle {
     }
 }
 
-val TransformHomeSubTitleTextStyle = CssStyle {
+val WhyChooseUsSubTitleTextStyle = CssStyle {
     base {
         Modifier
             .fontFamily("Karla")
@@ -68,7 +67,7 @@ val TransformHomeSubTitleTextStyle = CssStyle {
             .lineHeight(25.px)
             .fontSize(17.px)
             .textAlign(TextAlign.Center)
-            .color(Color.White.rgb)
+            .color(Color.ServiceSubTitleTextColor.rgb)
     }
 
     Breakpoint.ZERO {

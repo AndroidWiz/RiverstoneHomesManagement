@@ -1,7 +1,5 @@
 package com.demo.riverstonehomesmanagement.models
 
-import com.demo.riverstonehomesmanagement.utils.Res
-
 data class Beliefs(
     val title: String,
     val description: String,

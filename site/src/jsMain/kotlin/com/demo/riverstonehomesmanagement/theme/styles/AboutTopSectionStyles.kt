@@ -1,4 +1,4 @@
-package com.demo.riverstonehomesmanagement.theme.styles.about
+package com.demo.riverstonehomesmanagement.theme.styles
 
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -7,9 +7,12 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.times
+import org.jetbrains.compose.web.css.vh
 
-val LandingSectionStyle = CssStyle {
+val AboutTopSectionStyle = CssStyle {
     base {
         Modifier
             .width(100.percent)
@@ -35,10 +38,10 @@ val LandingSectionStyle = CssStyle {
     }
 }
 
-val LandingTitleTextStyle = CssStyle {
+val AboutTopTitleTextStyle = CssStyle {
     base {
         Modifier
-            .fontSize(4.25.cssRem)
+            .fontSize(4.cssRem)
             .fontFamily("Rubik")
             .textAlign(TextAlign.Center)
             .fontWeight(FontWeight.SemiBold)
@@ -46,37 +49,15 @@ val LandingTitleTextStyle = CssStyle {
     }
 
     Breakpoint.ZERO {
-        Modifier.fontSize(4.25.cssRem.times(0.5))
+        Modifier.fontSize(4.cssRem.times(0.5))
     }
     Breakpoint.SM {
-        Modifier.fontSize(4.25.cssRem.times(0.5))
+        Modifier.fontSize(4.cssRem.times(0.5))
     }
     Breakpoint.MD {
-        Modifier.fontSize(4.25.cssRem)
+        Modifier.fontSize(4.cssRem)
     }
     Breakpoint.LG {
-        Modifier.fontSize(4.25.cssRem.times(1.1))
-    }
-}
-
-val LandingSubTitleTextStyle = CssStyle {
-    base {
-        Modifier
-            .fontFamily("Karla")
-            .fontWeight(FontWeight.Light)
-            .lineHeight(25.px)
-            .fontSize(18.px)
-            .textAlign(TextAlign.Center)
-            .color(Colors.White)
-    }
-
-    Breakpoint.SM {
-        Modifier.fontSize(18.px.times(0.8))
-    }
-    Breakpoint.MD {
-        Modifier.fontSize(18.px)
-    }
-    Breakpoint.LG {
-        Modifier.fontSize(18.px.times(1.1))
+        Modifier.fontSize(4.cssRem.times(1.1))
     }
 }

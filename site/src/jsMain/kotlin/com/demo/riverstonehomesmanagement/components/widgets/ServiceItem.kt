@@ -2,16 +2,13 @@ package com.demo.riverstonehomesmanagement.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.models.Services
-import com.demo.riverstonehomesmanagement.theme.Color
-import com.demo.riverstonehomesmanagement.theme.styles.offerings.ServiceItemSubTitleTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.offerings.ServiceItemTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.ServiceItemSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.ServiceItemTitleTextStyle
 import com.varabyte.kobweb.compose.css.AlignSelf
-import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.ColumnDefaults
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -22,7 +19,6 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.varabyte.kobweb.silk.theme.shapes.Rect
 import com.varabyte.kobweb.silk.theme.shapes.clip
-import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 
 @Composable

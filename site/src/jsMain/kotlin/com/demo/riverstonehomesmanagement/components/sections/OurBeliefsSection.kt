@@ -4,11 +4,9 @@ import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.BeliefItem
 import com.demo.riverstonehomesmanagement.models.getAllBeliefs
 import com.demo.riverstonehomesmanagement.theme.Color
-import com.demo.riverstonehomesmanagement.theme.styles.about.OurBeliefsSubTitleTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.OurBeliefsTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.OurBeliefsSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.OurBeliefsTitleTextStyle
 import com.varabyte.kobweb.compose.css.BackgroundSize
-import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column

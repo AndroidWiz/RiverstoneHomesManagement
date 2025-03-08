@@ -1,16 +1,14 @@
-package com.demo.riverstonehomesmanagement.theme.styles.about
+package com.demo.riverstonehomesmanagement.theme.styles
 
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.*
 
-val OurStoryAboutSectionStyle = CssStyle {
+val BeliefItemStyle = CssStyle {
     base {
         Modifier
             .width(100.percent)
@@ -36,53 +34,30 @@ val OurStoryAboutSectionStyle = CssStyle {
     }
 }
 
-val OurStoryAboutTitleTextStyle = CssStyle {
+val BeliefItemTitleTextStyle = CssStyle {
     base {
         Modifier
             .fontFamily("Rubik")
             .fontWeight(FontWeight.Medium)
-            .fontSize(3.cssRem)
+            .fontSize(1.5.cssRem)
             .color(Color.ServiceTitleTextColor.rgb)
     }
 
     Breakpoint.ZERO {
-        Modifier.fontSize(3.cssRem.times(0.8))
+        Modifier.fontSize(1.75.cssRem.times(0.6))
     }
     Breakpoint.SM {
-        Modifier.fontSize(3.cssRem.times(0.8))
+        Modifier.fontSize(1.75.cssRem.times(0.6))
     }
     Breakpoint.MD {
-        Modifier.fontSize(3.cssRem)
+        Modifier.fontSize(1.5.cssRem)
     }
     Breakpoint.LG {
-        Modifier.fontSize(3.cssRem.times(1.1))
+        Modifier.fontSize(1.75.cssRem.times(1.1))
     }
 }
 
-val OurStoryAboutSubTitleTextStyle = CssStyle {
-    base {
-        Modifier
-            .fillMaxWidth()
-            .fontFamily("Rubik")
-            .fontWeight(FontWeight.Medium)
-            .fontSize(1.25.cssRem)
-            .color(Color.ServiceTitleTextColor.rgb)
-    }
-    Breakpoint.ZERO {
-        Modifier.fontSize(1.25.cssRem.times(0.8))
-    }
-    Breakpoint.SM {
-        Modifier.fontSize(1.25.cssRem.times(0.8))
-    }
-    Breakpoint.MD {
-        Modifier.fontSize(1.25.cssRem)
-    }
-    Breakpoint.LG {
-        Modifier.fontSize(1.25.cssRem.times(1.1))
-    }
-}
-
-val OurStoryAboutDescriptionTextStyle = CssStyle {
+val BeliefItemSubTitleTextStyle = CssStyle {
     base {
         Modifier
             .fillMaxWidth()
@@ -90,7 +65,6 @@ val OurStoryAboutDescriptionTextStyle = CssStyle {
             .fontWeight(FontWeight.Light)
             .lineHeight(25.px)
             .fontSize(17.px)
-            .textAlign(TextAlign.Start)
             .color(Color.ServiceSubTitleTextColor.rgb)
     }
 

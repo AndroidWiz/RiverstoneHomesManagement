@@ -2,8 +2,8 @@ package com.demo.riverstonehomesmanagement.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.models.Beliefs
-import com.demo.riverstonehomesmanagement.theme.styles.about.BeliefItemSubTitleTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.BeliefItemTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.BeliefItemSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.BeliefItemTitleTextStyle
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box

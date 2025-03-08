@@ -1,10 +1,9 @@
-package com.demo.riverstonehomesmanagement.theme.styles.about
+package com.demo.riverstonehomesmanagement.theme.styles
 
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint

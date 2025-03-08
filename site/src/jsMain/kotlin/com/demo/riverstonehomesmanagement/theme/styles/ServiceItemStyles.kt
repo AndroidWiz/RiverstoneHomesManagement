@@ -1,17 +1,14 @@
-package com.demo.riverstonehomesmanagement.theme.styles.about
+package com.demo.riverstonehomesmanagement.theme.styles
 
 import com.demo.riverstonehomesmanagement.theme.Color
-import com.varabyte.kobweb.compose.css.AlignSelf
 import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.*
 
-val BeliefItemStyle = CssStyle {
+val ServiceItemStyle = CssStyle {
     base {
         Modifier
             .width(100.percent)
@@ -37,12 +34,12 @@ val BeliefItemStyle = CssStyle {
     }
 }
 
-val BeliefItemTitleTextStyle = CssStyle {
+val ServiceItemTitleTextStyle = CssStyle {
     base {
         Modifier
             .fontFamily("Rubik")
             .fontWeight(FontWeight.Medium)
-            .fontSize(1.5.cssRem)
+            .fontSize(1.75.cssRem)
             .color(Color.ServiceTitleTextColor.rgb)
     }
 
@@ -53,14 +50,14 @@ val BeliefItemTitleTextStyle = CssStyle {
         Modifier.fontSize(1.75.cssRem.times(0.6))
     }
     Breakpoint.MD {
-        Modifier.fontSize(1.5.cssRem)
+        Modifier.fontSize(1.75.cssRem)
     }
     Breakpoint.LG {
         Modifier.fontSize(1.75.cssRem.times(1.1))
     }
 }
 
-val BeliefItemSubTitleTextStyle = CssStyle {
+val ServiceItemSubTitleTextStyle = CssStyle {
     base {
         Modifier
             .fillMaxWidth()

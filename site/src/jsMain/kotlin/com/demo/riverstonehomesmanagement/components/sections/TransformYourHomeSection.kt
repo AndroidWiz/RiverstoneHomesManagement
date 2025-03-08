@@ -2,11 +2,9 @@ package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
-import com.demo.riverstonehomesmanagement.components.widgets.ServiceItem
-import com.demo.riverstonehomesmanagement.models.getAllServices
 import com.demo.riverstonehomesmanagement.theme.Color
-import com.demo.riverstonehomesmanagement.theme.styles.about.TransformHomeSubTitleTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.TransformHomeTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.TransformHomeSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.TransformHomeTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.*
@@ -17,23 +15,15 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.rememberPageContext
-import com.varabyte.kobweb.silk.components.forms.Button
-import com.varabyte.kobweb.silk.components.forms.ButtonSize
-import com.varabyte.kobweb.silk.components.layout.SimpleGrid
-import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.toModifier
-import com.varabyte.kobweb.silk.theme.colors.ColorPalettes
 import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgba
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun TransformYourHomeSection(modifier: Modifier = Modifier) {

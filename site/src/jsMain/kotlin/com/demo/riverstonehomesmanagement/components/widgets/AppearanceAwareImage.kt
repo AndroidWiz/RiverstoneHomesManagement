@@ -3,13 +3,11 @@ package com.demo.riverstonehomesmanagement.components.widgets
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.dom.ElementRefScope
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.graphics.ImageKind
 import com.varabyte.kobweb.silk.style.CssStyleVariant
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import com.varabyte.kobweb.silk.theme.shapes.clip
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.w3c.dom.HTMLImageElement
 

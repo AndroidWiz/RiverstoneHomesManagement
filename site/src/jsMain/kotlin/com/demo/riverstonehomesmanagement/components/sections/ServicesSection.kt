@@ -3,13 +3,9 @@ package com.demo.riverstonehomesmanagement.components.sections
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.components.widgets.ServiceItem
 import com.demo.riverstonehomesmanagement.models.getAllServices
-import com.demo.riverstonehomesmanagement.theme.Color
-import com.demo.riverstonehomesmanagement.theme.styles.about.ServiceSectionStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.ServiceSubTitleTextStyle
-import com.demo.riverstonehomesmanagement.theme.styles.about.ServiceTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.ServiceSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.ServiceTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Constants
-import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
