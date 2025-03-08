@@ -5,6 +5,7 @@ import com.demo.riverstonehomesmanagement.models.Services
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.theme.styles.offerings.ServiceItemSubTitleTextStyle
 import com.demo.riverstonehomesmanagement.theme.styles.offerings.ServiceItemTitleTextStyle
+import com.varabyte.kobweb.compose.css.AlignSelf
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -82,7 +83,7 @@ fun ServiceItem(
 
                     // button
                     BorderedButton(
-                        modifier = modifier,
+                        modifier = modifier.alignSelf(AlignSelf.Center),
 //                onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
                         onClick = { onClick() },
                         buttonTitle = buttonTitle
