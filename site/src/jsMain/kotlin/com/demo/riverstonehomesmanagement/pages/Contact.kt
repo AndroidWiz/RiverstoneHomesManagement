@@ -53,7 +53,8 @@ fun ContactPage() {
             Row(Modifier.fillMaxWidth().minWidth(100.vw)) {
                 Box(Modifier.fillMaxWidth().minWidth(100.vw)) {
                     Column(
-                        modifier = Modifier.fillMaxWidth().minWidth(100.vw), // Apply to Column too
+//                        modifier = Modifier.fillMaxWidth().minWidth(100.vw), // Apply to Column too
+                        modifier = Modifier.fillMaxWidth(), // Apply to Column too
                         verticalArrangement = Arrangement.spacedBy(20.px)
                     ) {
                         ContactTopSection(breakpoint = breakpoint)
