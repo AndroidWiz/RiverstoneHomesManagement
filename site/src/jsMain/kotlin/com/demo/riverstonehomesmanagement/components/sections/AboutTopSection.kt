@@ -1,6 +1,8 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.Composable
+import com.demo.riverstonehomesmanagement.theme.styles.about.AboutTopTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.about.LandingTitleTextStyle
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.css.functions.url
@@ -12,6 +14,8 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
@@ -19,7 +23,14 @@ import org.jetbrains.compose.web.css.rgba
 
 
 @Composable
-fun AboutTopSection(modifier: Modifier = Modifier) {
+fun AboutTopSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
+
+    val padding = when (breakpoint) {
+        Breakpoint.SM -> Modifier.padding(topBottom = 80.px, leftRight = 20.px) // small screens
+        Breakpoint.MD -> Modifier.padding(topBottom = 120.px, leftRight = 30.px)
+        else -> Modifier.padding(topBottom = 150.px, leftRight = 40.px) // default, large screen
+    }
+
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -43,17 +54,25 @@ fun AboutTopSection(modifier: Modifier = Modifier) {
         Column(
             modifier = modifier.fillMaxWidth()
                 .position(Position.Relative)
-                .padding(topBottom = 100.px, leftRight = 40.px),
+//                .padding(topBottom = 100.px, leftRight = 40.px),
+            .then(padding), // dynamic padding
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(15.px)
+//            verticalArrangement = Arrangement.spacedBy(15.px)
+            verticalArrangement = Arrangement.spacedBy(
+                when (breakpoint) {
+                    Breakpoint.SM, Breakpoint.MD -> 10.px
+                    else -> 15.px
+                }
+            )
         ) {
             SpanText(
                 text = "Building Dreams",
-                modifier = modifier
+                modifier = AboutTopTitleTextStyle.toModifier()
+                /*modifier = modifier
                     .fontFamily("Rubik")
                     .fontWeight(FontWeight.SemiBold)
                     .fontSize(4.cssRem)
-                    .color(Colors.White)
+                    .color(Colors.White)*/
             )
         }
     }

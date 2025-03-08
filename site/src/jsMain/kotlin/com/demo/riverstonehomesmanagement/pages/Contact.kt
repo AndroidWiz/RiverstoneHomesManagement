@@ -11,6 +11,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.core.Page
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 
@@ -29,7 +30,7 @@ fun ContactPage() {
                     ) {
                         ContactTopSection()
                         ReachOutSection()
-                        OurBeliefsSection() // todo: need removal
+                        OurBeliefsSection(breakpoint = rememberBreakpoint()) // todo: need removal
                         TransformYourHomeSection()
                     }
                 }

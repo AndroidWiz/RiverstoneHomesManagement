@@ -2,16 +2,20 @@ package com.demo.riverstonehomesmanagement.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.demo.riverstonehomesmanagement.models.Beliefs
-import com.demo.riverstonehomesmanagement.theme.Color
-import com.varabyte.kobweb.compose.css.AlignSelf
-import com.varabyte.kobweb.compose.css.FontWeight
+import com.demo.riverstonehomesmanagement.theme.styles.about.BeliefItemSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.about.BeliefItemTitleTextStyle
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.foundation.layout.*
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.silk.components.text.SpanText
-import org.jetbrains.compose.web.css.cssRem
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.px
 
 @Composable
@@ -20,9 +24,23 @@ fun BeliefItem(
     modifier: Modifier = Modifier
 ) {
 
+    val breakpoint = rememberBreakpoint()
+
     Box(
         modifier = modifier
-            .margin(leftRight = 50.px),
+//            .margin(leftRight = 50.px),
+            .margin(
+                leftRight = when (breakpoint) {
+                    Breakpoint.SM,
+                    Breakpoint.MD -> 5.px
+
+                    else -> 50.px
+                },
+                topBottom = when (breakpoint) {
+                    Breakpoint.SM, Breakpoint.MD -> 20.px
+                    else -> 0.px
+                }
+            ),
         contentAlignment = Alignment.TopCenter,
     ) {
         Column(
@@ -30,17 +48,19 @@ fun BeliefItem(
         ) {
             SpanText(
                 text = beliefs.title,
-                modifier = modifier
+                modifier = BeliefItemTitleTextStyle.toModifier().textAlign(TextAlign.Center)
+                /*modifier = modifier
                     .fontFamily("Rubik")
                     .fontWeight(FontWeight.Medium)
                     .fontSize(1.5.cssRem)
                     .color(Color.ServiceTitleTextColor.rgb)
-                    .alignSelf(AlignSelf.Center)
+                    .alignSelf(AlignSelf.Center)*/
             )
 
             SpanText(
                 text = beliefs.description,
-                modifier = modifier
+                modifier = BeliefItemSubTitleTextStyle.toModifier().textAlign(TextAlign.Start)
+                /*modifier = modifier
                     .fillMaxWidth()
                     .fontFamily("Karla")
                     .fontWeight(FontWeight.Light)
@@ -48,7 +68,7 @@ fun BeliefItem(
                     .fontSize(17.px)
 //                    .textAlign(TextAlign.Start)
                     .color(Color.ServiceSubTitleTextColor.rgb)
-                    .alignSelf(AlignSelf.Stretch)
+                    .alignSelf(AlignSelf.Stretch)*/
             )
         }
     }
