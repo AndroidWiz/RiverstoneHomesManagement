@@ -48,13 +48,24 @@ fun BeliefItem(
         ) {
             SpanText(
                 text = beliefs.title,
-                modifier = BeliefItemTitleTextStyle.toModifier().textAlign(TextAlign.Center)
-                /*modifier = modifier
-                    .fontFamily("Rubik")
-                    .fontWeight(FontWeight.Medium)
-                    .fontSize(1.5.cssRem)
-                    .color(Color.ServiceTitleTextColor.rgb)
-                    .alignSelf(AlignSelf.Center)*/
+                modifier = BeliefItemTitleTextStyle.toModifier()
+                    .textAlign(TextAlign.Center)
+                    .margin(
+                        top = 15.px,
+                        bottom =
+                            when (breakpoint) {
+                                Breakpoint.ZERO,
+                                Breakpoint.SM,
+                                Breakpoint.MD -> (-8).px
+                                else -> 0.px
+                            }
+                        /*modifier = modifier
+                            .fontFamily("Rubik")
+                            .fontWeight(FontWeight.Medium)
+                            .fontSize(1.5.cssRem)
+                            .color(Color.ServiceTitleTextColor.rgb)
+                            .alignSelf(AlignSelf.Center)*/
+                    )
             )
 
             SpanText(
