@@ -108,3 +108,74 @@ val ContactSubTitleTextStyle = CssStyle {
         Modifier.fontSize(18.px.times(1.1))
     }
 }
+
+val ReachOutTitleTextStyle = CssStyle {
+    base {
+        Modifier
+            .fontFamily("Rubik")
+            .fontWeight(FontWeight.Medium)
+            .fontSize(1.5.cssRem)
+            .color(Color.ServiceTitleTextColor.rgb)
+    }
+
+    Breakpoint.ZERO {
+        Modifier.fontSize(1.75.cssRem.times(0.8))
+    }
+    Breakpoint.SM {
+        Modifier.fontSize(1.75.cssRem.times(0.8))
+    }
+    Breakpoint.MD {
+        Modifier.fontSize(1.75.cssRem)
+    }
+    Breakpoint.LG {
+        Modifier.fontSize(1.75.cssRem.times(1.1))
+    }
+}
+
+val ReachOutSubTitleTextStyle = CssStyle {
+    base {
+        Modifier
+            .fontFamily("Rubik")
+            .fontWeight(FontWeight.Medium)
+            .fontSize(20.px)
+            .color(Color.ServiceTitleTextColor.rgb)
+    }
+
+    Breakpoint.ZERO {
+        Modifier.fontSize(20.px.times(0.8))
+    }
+    Breakpoint.SM {
+        Modifier.fontSize(20.px.times(0.8))
+    }
+    Breakpoint.MD {
+        Modifier.fontSize(20.px)
+    }
+    Breakpoint.LG {
+        Modifier.fontSize(20.px.times(1.1))
+    }
+}
+
+val ReachOutDescriptionTextStyle = CssStyle {
+    base {
+        Modifier
+            .fontFamily("Karla")
+            .fontWeight(FontWeight.Light)
+            .lineHeight(19.px)
+            .fontSize(17.px)
+            .textAlign(TextAlign.Justify)
+            .color(Color.ServiceSubTitleTextColor.rgb)
+    }
+
+    Breakpoint.ZERO {
+        Modifier.fontSize(18.px.times(0.8))
+    }
+    Breakpoint.SM {
+        Modifier.fontSize(18.px.times(0.8))
+    }
+    Breakpoint.MD {
+        Modifier.fontSize(18.px)
+    }
+    Breakpoint.LG {
+        Modifier.fontSize(18.px.times(1.1))
+    }
+}

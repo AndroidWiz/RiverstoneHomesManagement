@@ -3,9 +3,10 @@ package com.demo.riverstonehomesmanagement.components.sections
 import androidx.compose.runtime.*
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.theme.Color
+import com.demo.riverstonehomesmanagement.theme.styles.ReachOutDescriptionTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.ReachOutSubTitleTextStyle
+import com.demo.riverstonehomesmanagement.theme.styles.ReachOutTitleTextStyle
 import com.varabyte.kobweb.compose.css.AlignSelf
-import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -16,13 +17,13 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.rememberPageContext
+import com.varabyte.kobweb.silk.components.forms.TextInput
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import org.jetbrains.compose.web.css.cssRem
+import com.varabyte.kobweb.silk.style.toModifier
+import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.TextArea
-import org.jetbrains.compose.web.dom.TextInput
 
 @Composable
 fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
@@ -32,8 +33,7 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
     // padding and alignment dynamically
     val padding = when (breakpoint) {
         Breakpoint.SM -> modifier.padding(20.px) // small screens
-        Breakpoint.MD -> modifier.padding(30.px)
-        else -> modifier.padding(50.px) // default, large screen
+        else -> modifier.padding(10.px) // default, large screen
     }
 
     Div(
@@ -54,25 +54,39 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     ReachOutInfo(modifier = modifier.fillMaxWidth())
-                    ReachOutForm(modifier = modifier.fillMaxWidth())
+
+                    ReachOutForm(modifier = modifier.fillMaxWidth(), breakpoint = breakpoint)
                 }
             }
 
             else -> {
                 Box(
-                    modifier = modifier.fillMaxWidth().alignSelf(AlignSelf.Center).then(padding),
+                    modifier = modifier.margin(topBottom = 65.px).fillMaxWidth()
+//                        .alignSelf(AlignSelf.Center)
+                        .then(padding),
                     contentAlignment = Alignment.Center
                 ) {
                     Row(
-//                        modifier = modifier
-//                            .fillMaxWidth()
-//                            .then(padding),
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .then(padding),
 //                .padding(leftRight = 100.px, topBottom = 50.px),
                         horizontalArrangement = Arrangement.Center,
-//                    verticalAlignment = Alignment.CenterVertically,
+//                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         ReachOutInfo(modifier = modifier.weight(1f))
-                        ReachOutForm(modifier = modifier.weight(1f))
+
+                        // divider line
+                        Box(
+                            modifier = modifier
+                                .margin(left = 30.px, right = 0.px)
+//                                .margin(leftRight = 10.px)
+                                .width(1.px)
+                                .height(400.px)
+                                .backgroundColor(Color.HoveredGreenButtonColor.rgb)
+                        )
+
+                        ReachOutForm(modifier = modifier.weight(1f), breakpoint = breakpoint)
                     }
                 }
             }
@@ -84,41 +98,53 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 fun ReachOutInfo(modifier: Modifier) {
 //    Div {
     Box(
-//            modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center,
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(20.px)
+            verticalArrangement = Arrangement.spacedBy(20.px, Alignment.CenterVertically)
         ) {
             SpanText(
                 text = "Reach Out To Us Today For Your Needs",
-                modifier = modifier
+                modifier = ReachOutTitleTextStyle.toModifier()
+                /*modifier = modifier
                     .fontFamily("Rubik")
                     .fontWeight(FontWeight.Medium)
                     .fontSize(1.75.cssRem)
-                    .color(Color.ServiceTitleTextColor.rgb)
+                    .color(Color.ServiceTitleTextColor.rgb)*/
+            )
+
+            // divider line
+            Box(
+                modifier = modifier
+                    .margin(top = (-10).px, bottom = 5.px)
+                    .fillMaxWidth()
+                    .height(0.5.px)
+                    .backgroundColor(Color.HoveredGreenButtonColor.rgb)
             )
 
             Box {
                 Column {
                     SpanText(
                         text = "Address",
-                        modifier = modifier
+                        modifier = ReachOutSubTitleTextStyle.toModifier()
+                        /*modifier = modifier
                             .fontFamily("Rubik")
                             .fontWeight(FontWeight.Medium)
                             .fontSize(20.px)
-                            .color(Color.ServiceTitleTextColor.rgb)
+                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = "7901 4th St N STE 300, St. Petersburg, FL 33702",
-                        modifier = modifier
+                        modifier = ReachOutDescriptionTextStyle.toModifier()
+                        /*modifier = modifier
                             .fontFamily("Karla")
                             .fontWeight(FontWeight.Light)
                             .lineHeight(25.px)
                             .fontSize(17.px)
                             .textAlign(TextAlign.Justify)
-                            .color(Color.ServiceSubTitleTextColor.rgb)
+                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
                 }
             }
@@ -126,22 +152,24 @@ fun ReachOutInfo(modifier: Modifier) {
                 Column {
                     SpanText(
                         text = "Phone",
-                        modifier = modifier
+                        modifier = ReachOutSubTitleTextStyle.toModifier()
+                        /*modifier = modifier
                             .fontFamily("Rubik")
                             .fontWeight(FontWeight.Medium)
                             .fontSize(20.px)
-                            .color(Color.ServiceTitleTextColor.rgb)
+                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = "(321) 204-3110",
-                        modifier = modifier
+                        modifier = ReachOutDescriptionTextStyle.toModifier()
+                        /*modifier = modifier
                             .fontFamily("Karla")
                             .fontWeight(FontWeight.Light)
                             .lineHeight(25.px)
                             .fontSize(17.px)
                             .textAlign(TextAlign.Justify)
-                            .color(Color.ServiceSubTitleTextColor.rgb)
+                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
                 }
             }
@@ -149,32 +177,43 @@ fun ReachOutInfo(modifier: Modifier) {
                 Column {
                     SpanText(
                         text = "Email",
-                        modifier = modifier
+                        modifier = ReachOutSubTitleTextStyle.toModifier()
+                        /*modifier = modifier
                             .fontFamily("Rubik")
                             .fontWeight(FontWeight.Medium)
                             .fontSize(20.px)
-                            .color(Color.ServiceTitleTextColor.rgb)
+                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = "info@riverstonehomesmgt.com",
-                        modifier = modifier
+                        modifier = ReachOutDescriptionTextStyle.toModifier()
+                        /*modifier = modifier
                             .fontFamily("Karla")
                             .fontWeight(FontWeight.Light)
                             .lineHeight(25.px)
                             .fontSize(17.px)
                             .textAlign(TextAlign.Justify)
-                            .color(Color.ServiceSubTitleTextColor.rgb)
+                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
                 }
             }
+
+            // divider line
+            Box(
+                modifier = modifier
+                    .margin(top = 10.px, bottom = 5.px)
+                    .fillMaxWidth()
+                    .height(0.5.px)
+                    .backgroundColor(Color.HoveredGreenButtonColor.rgb)
+            )
         }
     }
 //    }
 }
 
 @Composable
-fun ReachOutForm(modifier: Modifier) {
+fun ReachOutForm(modifier: Modifier, breakpoint: Breakpoint) {
 
     var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -182,10 +221,14 @@ fun ReachOutForm(modifier: Modifier) {
 
     Box(
         modifier = modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center
+//        contentAlignment = Alignment.Center
+        contentAlignment = when(breakpoint){
+            Breakpoint.LG -> Alignment.CenterStart
+            else -> Alignment.Center
+        }
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(10.px),
+            verticalArrangement = Arrangement.spacedBy(10.px, Alignment.CenterVertically),
         ) {
 
             // full name
@@ -195,8 +238,11 @@ fun ReachOutForm(modifier: Modifier) {
                 }*/
                 SpanText(text = "Full Name")
                 TextInput(
-                    value = fullName,
-                    attrs = modifier.height(40.px).fillMaxWidth().toAttrs()
+                    text = fullName,
+                    placeholder = "Enter your full name",
+                    onTextChange = { fullName = it },
+                    modifier = modifier.height(40.px).width(100.percent),
+                    focusBorderColor = Color.HoveredGreenButtonColor.rgb
                 )
             }
 
@@ -204,17 +250,23 @@ fun ReachOutForm(modifier: Modifier) {
             Column {
                 SpanText(text = "Email")
                 TextInput(
-                    value = email,
-                    attrs = modifier.height(40.px).fillMaxWidth().toAttrs()
+                    text = email,
+                    placeholder = "Enter your email",
+                    onTextChange = { email = it },
+                    modifier = modifier.height(40.px).fillMaxWidth(),
+                    focusBorderColor = Color.HoveredGreenButtonColor.rgb
                 )
             }
 
             // message
             Column {
                 SpanText(text = "Message")
-                TextArea(
-                    value = message,
-                    attrs = modifier.height(140.px).fillMaxWidth().toAttrs()
+                TextInput(
+                    text = message,
+                    placeholder = "Enter your message",
+                    onTextChange = { message = it },
+                    modifier = modifier.height(140.px).fillMaxWidth(),
+                    focusBorderColor = Color.HoveredGreenButtonColor.rgb,
                 )
             }
 
