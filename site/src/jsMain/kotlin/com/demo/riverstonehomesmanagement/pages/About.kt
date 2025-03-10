@@ -24,7 +24,6 @@ import org.jetbrains.compose.web.dom.Div
 fun AboutPage() {
     val breakpoint = rememberBreakpoint()
     PageLayout(Constants.ABOUT_PAGE_TITLE) {
-//        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
         Div {
             Row(
                 Modifier.fillMaxWidth()

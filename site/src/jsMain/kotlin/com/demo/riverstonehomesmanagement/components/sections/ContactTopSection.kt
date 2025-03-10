@@ -53,18 +53,12 @@ fun ContactTopSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
             modifier = modifier.fillMaxWidth()
                 .position(Position.Relative)
                 .then(padding),
-//                .padding(topBottom = 100.px, leftRight = 40.px),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(15.px)
         ) {
             SpanText(
                 text = "Connect with Us",
                 modifier = ContactTopTitleTextStyle.toModifier()
-                /*modifier = modifier
-                    .fontFamily("Rubik")
-                    .fontWeight(FontWeight.SemiBold)
-                    .fontSize(4.cssRem)
-                    .color(Colors.White)*/
             )
         }
     }

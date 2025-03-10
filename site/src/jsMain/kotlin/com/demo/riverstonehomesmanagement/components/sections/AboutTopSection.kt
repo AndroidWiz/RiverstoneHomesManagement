@@ -51,10 +51,8 @@ fun AboutTopSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
         Column(
             modifier = modifier.fillMaxWidth()
                 .position(Position.Relative)
-//                .padding(topBottom = 100.px, leftRight = 40.px),
             .then(padding), // dynamic padding
             horizontalAlignment = Alignment.CenterHorizontally,
-//            verticalArrangement = Arrangement.spacedBy(15.px)
             verticalArrangement = Arrangement.spacedBy(
                 when (breakpoint) {
                     Breakpoint.SM, Breakpoint.MD -> 10.px
@@ -65,11 +63,6 @@ fun AboutTopSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
             SpanText(
                 text = "Building Dreams",
                 modifier = AboutTopTitleTextStyle.toModifier()
-                /*modifier = modifier
-                    .fontFamily("Rubik")
-                    .fontWeight(FontWeight.SemiBold)
-                    .fontSize(4.cssRem)
-                    .color(Colors.White)*/
             )
         }
     }

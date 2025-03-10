@@ -65,8 +65,6 @@ private fun NavLink(path: String, text: String, color: CSSColorValue) {
 
 @Composable
 private fun MenuItems(isSideMenu: Boolean = false, scrollY: Int) {
-//    val linkColor = if (isSideMenu) Color.OurStoryBgColor.rgb else Color.NavLinkTextColor.rgb
-//    val linkColor = if (isSideMenu) Color.ServiceTitleTextColor.rgb else Color.NavLinkTextColor.rgb
     val linkColor =
         if (isSideMenu) Color.ServiceTitleTextColor.rgb else if (scrollY > 500) Color.ServiceTitleTextColor.rgb else Color.NavLinkTextColor.rgb
 
@@ -75,17 +73,15 @@ private fun MenuItems(isSideMenu: Boolean = false, scrollY: Int) {
     NavLink(path = Constants.ABOUT_ROUTE, text = Constants.ABOUT_PAGE_TITLE, color = linkColor)
     NavLink(path = Constants.OFFERINGS_ROUTE, text = Constants.OFFERINGS_PAGE_TITLE, color = linkColor)
     NavLink(path = Constants.CONTACT_ROUTE, text = Constants.CONTACT_PAGE_TITLE, color = linkColor)
-//    NavLink("/", Constants.CALL_NOW_TITLE)
+
     BorderedButton(
         modifier = Modifier,
         onClick = { },
         buttonTitle = Constants.CALL_NOW_TITLE,
         hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
         defaultTextColor = linkColor,
-//        defaultTextColor = Color.NavLinkTextColor.rgb,
         hoveredTextColor = Color.NavLinkTextColor.rgb,
         defaultBorderColor = linkColor,
-//        defaultBorderColor = Color.White.rgb,
         hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
     )
 }

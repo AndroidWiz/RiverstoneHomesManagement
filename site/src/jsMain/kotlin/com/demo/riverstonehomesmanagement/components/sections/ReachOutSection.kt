@@ -39,9 +39,7 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
     Div(
         attrs = modifier
             .fillMaxWidth()
-//            .alignItems(AlignItems.Center)
             .alignSelf(AlignSelf.Center)
-//            .justifyContent(JustifyContent.Center)
             .toAttrs(),
     ) {
         when (breakpoint) {
@@ -61,8 +59,9 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 
             else -> {
                 Box(
-                    modifier = modifier.margin(topBottom = 65.px).fillMaxWidth()
-//                        .alignSelf(AlignSelf.Center)
+                    modifier = modifier
+                        .margin(topBottom = 65.px)
+                        .fillMaxWidth()
                         .then(padding),
                     contentAlignment = Alignment.Center
                 ) {
@@ -70,9 +69,7 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                         modifier = modifier
                             .fillMaxWidth()
                             .then(padding),
-//                .padding(leftRight = 100.px, topBottom = 50.px),
                         horizontalArrangement = Arrangement.Center,
-//                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         ReachOutInfo(modifier = modifier.weight(1f))
 
@@ -80,7 +77,6 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                         Box(
                             modifier = modifier
                                 .margin(left = 30.px, right = 0.px)
-//                                .margin(leftRight = 10.px)
                                 .width(1.px)
                                 .height(400.px)
                                 .backgroundColor(Color.HoveredGreenButtonColor.rgb)
@@ -96,7 +92,6 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 
 @Composable
 fun ReachOutInfo(modifier: Modifier) {
-//    Div {
     Box(
         modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center,
@@ -107,11 +102,6 @@ fun ReachOutInfo(modifier: Modifier) {
             SpanText(
                 text = "Reach Out To Us Today For Your Needs",
                 modifier = ReachOutTitleTextStyle.toModifier()
-                /*modifier = modifier
-                    .fontFamily("Rubik")
-                    .fontWeight(FontWeight.Medium)
-                    .fontSize(1.75.cssRem)
-                    .color(Color.ServiceTitleTextColor.rgb)*/
             )
 
             // divider line
@@ -128,23 +118,11 @@ fun ReachOutInfo(modifier: Modifier) {
                     SpanText(
                         text = "Address",
                         modifier = ReachOutSubTitleTextStyle.toModifier()
-                        /*modifier = modifier
-                            .fontFamily("Rubik")
-                            .fontWeight(FontWeight.Medium)
-                            .fontSize(20.px)
-                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = "7901 4th St N STE 300, St. Petersburg, FL 33702",
                         modifier = ReachOutDescriptionTextStyle.toModifier()
-                        /*modifier = modifier
-                            .fontFamily("Karla")
-                            .fontWeight(FontWeight.Light)
-                            .lineHeight(25.px)
-                            .fontSize(17.px)
-                            .textAlign(TextAlign.Justify)
-                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
                 }
             }
@@ -153,23 +131,11 @@ fun ReachOutInfo(modifier: Modifier) {
                     SpanText(
                         text = "Phone",
                         modifier = ReachOutSubTitleTextStyle.toModifier()
-                        /*modifier = modifier
-                            .fontFamily("Rubik")
-                            .fontWeight(FontWeight.Medium)
-                            .fontSize(20.px)
-                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = "(321) 204-3110",
                         modifier = ReachOutDescriptionTextStyle.toModifier()
-                        /*modifier = modifier
-                            .fontFamily("Karla")
-                            .fontWeight(FontWeight.Light)
-                            .lineHeight(25.px)
-                            .fontSize(17.px)
-                            .textAlign(TextAlign.Justify)
-                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
                 }
             }
@@ -178,23 +144,11 @@ fun ReachOutInfo(modifier: Modifier) {
                     SpanText(
                         text = "Email",
                         modifier = ReachOutSubTitleTextStyle.toModifier()
-                        /*modifier = modifier
-                            .fontFamily("Rubik")
-                            .fontWeight(FontWeight.Medium)
-                            .fontSize(20.px)
-                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = "info@riverstonehomesmgt.com",
                         modifier = ReachOutDescriptionTextStyle.toModifier()
-                        /*modifier = modifier
-                            .fontFamily("Karla")
-                            .fontWeight(FontWeight.Light)
-                            .lineHeight(25.px)
-                            .fontSize(17.px)
-                            .textAlign(TextAlign.Justify)
-                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
                 }
             }
@@ -209,7 +163,6 @@ fun ReachOutInfo(modifier: Modifier) {
             )
         }
     }
-//    }
 }
 
 @Composable
@@ -221,7 +174,6 @@ fun ReachOutForm(modifier: Modifier, breakpoint: Breakpoint) {
 
     Box(
         modifier = modifier.fillMaxWidth(),
-//        contentAlignment = Alignment.Center
         contentAlignment = when(breakpoint){
             Breakpoint.LG -> Alignment.CenterStart
             else -> Alignment.Center
@@ -233,9 +185,6 @@ fun ReachOutForm(modifier: Modifier, breakpoint: Breakpoint) {
 
             // full name
             Column {
-                /*Form {
-                   Label(forId = fullName)
-                }*/
                 SpanText(text = "Full Name")
                 TextInput(
                     text = fullName,

@@ -5,7 +5,10 @@ import com.demo.riverstonehomesmanagement.UncoloredButtonVariant
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
+import com.varabyte.kobweb.compose.ui.modifiers.fontSize
+import com.varabyte.kobweb.compose.ui.modifiers.onMouseEnter
+import com.varabyte.kobweb.compose.ui.modifiers.onMouseLeave
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
@@ -36,10 +39,6 @@ fun BorderedButton(
             .onMouseEnter { isHovered = true }
             .onMouseLeave { isHovered = false }
             .styleModifier {
-//                color(if (isHovered) Color.White.rgb else Color.ServiceSubTitleTextColor.rgb) // text color
-//                border(1.px, LineStyle.Solid, if (isHovered) Color.White.rgb else Color.ServiceSubTitleTextColor.rgb)
-//                backgroundColor(if (isHovered) Color.GreenButton1.rgb else Colors.Transparent)
-
                 color(if (isHovered) hoveredTextColor else defaultTextColor) // text color
                 border(1.px, LineStyle.Solid, if (isHovered) hoveredBorderColor else defaultBorderColor)
                 backgroundColor(if (isHovered) hoveredBgColor else defaultBgColor)

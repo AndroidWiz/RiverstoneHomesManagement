@@ -11,7 +11,9 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -41,11 +43,6 @@ fun WhyChooseUsSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                 SpanText(
                     text = "Why Choose Us",
                     modifier = WhyChooseUsTitleTextStyle.toModifier()
-                    /* modifier = modifier
-                        .fontFamily("Rubik")
-                        .fontWeight(FontWeight.Medium)
-                        .fontSize(3.cssRem)
-                        .color(Color.ServiceTitleTextColor.rgb)*/
                 )
 
                 SpanText(
@@ -58,13 +55,6 @@ fun WhyChooseUsSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                                 else -> 0.px
                             }
                         )
-                    /*modifier = modifier
-                        .fontFamily("Karla")
-                        .fontWeight(FontWeight.Light)
-                        .lineHeight(25.px)
-                        .fontSize(17.px)
-                        .textAlign(TextAlign.Center)
-                        .color(Color.ServiceSubTitleTextColor.rgb)*/
                 )
 
                 SimpleGrid(

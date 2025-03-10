@@ -44,23 +44,11 @@ fun OfferingsSection(breakpoint: Breakpoint) {
                 SpanText(
                     text = "Explore Our Offerings",
                     modifier = OfferingsTitleTextStyle.toModifier()
-                    /*modifier = Modifier
-                        .fontFamily("Rubik")
-                        .fontWeight(FontWeight.Medium)
-                        .fontSize(3.cssRem)
-                        .color(Color.ServiceTitleTextColor.rgb)*/
                 )
 
                 SpanText(
                     text = "Discover the range of high-quality services we offer to meet all your residential construction needs.",
                     modifier = OfferingsSubTitleTextStyle.toModifier()
-                    /*modifier = Modifier
-                        .fontFamily("Karla")
-                        .fontWeight(FontWeight.Light)
-                        .lineHeight(25.px)
-                        .fontSize(17.px)
-                        .textAlign(TextAlign.Center)
-                        .color(Color.ServiceSubTitleTextColor.rgb)*/
                 )
 
                 Spacer()

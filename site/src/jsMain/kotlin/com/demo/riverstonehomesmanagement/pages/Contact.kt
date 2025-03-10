@@ -20,29 +20,6 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vw
 import org.jetbrains.compose.web.dom.Div
 
-
-/*@Page
-@Composable
-fun ContactPage() {
-
-    val breakpoint = rememberBreakpoint()
-
-    PageLayout(Constants.CONTACT_PAGE_TITLE) {
-        Div {
-            Box {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(20.px)
-                ) {
-                    ContactTopSection(breakpoint = breakpoint)
-                    ReachOutSection(breakpoint = breakpoint)
-                    TransformYourHomeSection()
-                }
-            }
-        }
-
-    }
-}*/
-
 @Page
 @Composable
 fun ContactPage() {
@@ -53,8 +30,7 @@ fun ContactPage() {
             Row(Modifier.fillMaxWidth().minWidth(100.vw)) {
                 Box(Modifier.fillMaxWidth().minWidth(100.vw)) {
                     Column(
-//                        modifier = Modifier.fillMaxWidth().minWidth(100.vw), // Apply to Column too
-                        modifier = Modifier.fillMaxWidth(), // Apply to Column too
+                        modifier = Modifier.fillMaxWidth(),
                         verticalArrangement = Arrangement.spacedBy(20.px)
                     ) {
                         ContactTopSection(breakpoint = breakpoint)

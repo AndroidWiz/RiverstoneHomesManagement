@@ -62,23 +62,11 @@ fun TransformYourHomeSection(modifier: Modifier = Modifier) {
                 SpanText(
                     text = "Transform Your Home Today",
                     modifier = TransformHomeTitleTextStyle.toModifier()
-                    /*modifier = modifier
-                        .fontFamily("Rubik")
-                        .fontWeight(FontWeight.Medium)
-                        .fontSize(3.cssRem)
-                        .color(Color.White.rgb)*/
                 )
 
                 SpanText(
                     text = "Contact us now to start the journey towards your dream home with Riverstone Homes Management. Let’s build together.",
                     modifier = TransformHomeSubTitleTextStyle.toModifier()
-                    /*modifier = modifier
-                        .fontFamily("Karla")
-                        .fontWeight(FontWeight.Light)
-                        .lineHeight(25.px)
-                        .fontSize(17.px)
-                        .textAlign(TextAlign.Center)
-                        .color(Color.White.rgb)*/
                 )
 
                 Spacer()
@@ -91,14 +79,6 @@ fun TransformYourHomeSection(modifier: Modifier = Modifier) {
                     defaultBorderColor = Color.White.rgb,
                     hoveredBorderColor = Color.HoveredGreenButtonColor.rgb
                 )
-                /*Button(
-                    onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
-                    colorPalette = ColorPalettes.Green,
-                    modifier = Modifier.fontFamily("Karla").fontSize(16.px).color(Colors.White),
-                    size = ButtonSize.LG,
-                ) {
-                    Text("Explore Now")
-                }*/
             }
         }
     }

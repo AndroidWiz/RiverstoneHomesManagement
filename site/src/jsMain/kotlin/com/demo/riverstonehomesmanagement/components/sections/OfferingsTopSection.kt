@@ -60,11 +60,6 @@ fun OfferingsTopSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
             SpanText(
                 text = "Our Services",
                 modifier = OfferingsTopTitleTextStyle.toModifier()
-                /*modifier = modifier
-                    .fontFamily("Rubik")
-                    .fontWeight(FontWeight.SemiBold)
-                    .fontSize(4.cssRem)
-                    .color(Colors.White)*/
             )
         }
     }

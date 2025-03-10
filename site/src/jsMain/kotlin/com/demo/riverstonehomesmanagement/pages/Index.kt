@@ -30,39 +30,11 @@ fun HomePage() {
     val breakpoint = rememberBreakpoint()
 
     PageLayout(Constants.HOME_PAGE_TITLE) {
-//        Div(attrs = HeroContainerStyle.toModifier().toAttrs()) {
-//            LandingSection()
         Box {
             Column(
                 verticalArrangement = Arrangement.spacedBy(20.px)
             ) {
                 LandingSection(breakpoint = breakpoint)
-                /*when (breakpoint) {
-                    Breakpoint.ZERO,
-                    Breakpoint.SM,
-                    Breakpoint.MD -> {
-                        Spacer()
-                    }
-
-                    else -> {
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                    }
-                }*/
-
                 ServicesSection(breakpoint = breakpoint)
                 OurStoryHomeSection(breakpoint = breakpoint)
                 WhyChooseUsSection(breakpoint = breakpoint)

@@ -12,7 +12,9 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -30,7 +32,6 @@ fun ServicesSection(breakpoint: Breakpoint) {
 
     Div {
         Box(
-//            modifier = ServiceSectionStyle.toModifier().fillMaxWidth(),
             modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center,
         ) {
@@ -43,28 +44,18 @@ fun ServicesSection(breakpoint: Breakpoint) {
                 SpanText(
                     text = "Explore Our Services",
                     modifier = ServiceTitleTextStyle.toModifier()
-                    /*modifier = Modifier
-                        .fontFamily("Rubik")
-                        .fontWeight(FontWeight.Medium)
-                        .fontSize(3.cssRem)
-                        .color(Color.ServiceTitleTextColor.rgb)*/
                 )
 
                 SpanText(
                     text = "Discover the range of high-quality services we offer to meet all your residential construction needs.",
                     modifier = ServiceSubTitleTextStyle.toModifier()
-                        .padding(when(breakpoint){
-                            Breakpoint.ZERO,
-                            Breakpoint.SM -> 15.px
-                            else -> 0.px
-                        })
-                    /* modifier = Modifier
-                        .fontFamily("Karla")
-                        .fontWeight(FontWeight.Light)
-                        .lineHeight(25.px)
-                        .fontSize(17.px)
-                        .textAlign(TextAlign.Center)
-                        .color(Color.ServiceSubTitleTextColor.rgb)*/
+                        .padding(
+                            when (breakpoint) {
+                                Breakpoint.ZERO,
+                                Breakpoint.SM -> 15.px
+                                else -> 0.px
+                            }
+                        )
                 )
 
                 Spacer()

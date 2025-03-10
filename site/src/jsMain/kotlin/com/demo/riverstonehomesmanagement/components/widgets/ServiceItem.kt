@@ -42,7 +42,6 @@ fun ServiceItem(
                 ServiceImage(
                     src = service.image,
                     modifier = modifier
-//                .margin(left = (-120).px)
                         .size(250.px)
                         .aspectRatio(1f)
                         .objectFit(ObjectFit.Cover)
@@ -51,54 +50,24 @@ fun ServiceItem(
 
 
                 Column(
-//            modifier = modifier.margin(right = (-150).px),
                     verticalArrangement = Arrangement.spacedBy(20.px)
                 ) {
                     SpanText(
                         text = service.title.uppercase(),
                         modifier = ServiceItemTitleTextStyle.toModifier().textAlign(TextAlign.Center)
-                        /*modifier = modifier
-                            .fontFamily("Rubik")
-                            .fontWeight(FontWeight.Medium)
-                            .fontSize(1.75.cssRem)
-                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = service.description,
                         modifier = ServiceItemSubTitleTextStyle.toModifier().textAlign(TextAlign.Justify)
-                        /*modifier = modifier
-                            .fillMaxWidth()
-                            .fontFamily("Karla")
-                            .fontWeight(FontWeight.Light)
-                            .lineHeight(25.px)
-                            .fontSize(17.px)
-                            .textAlign(TextAlign.Start)
-                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
 
                     // button
                     BorderedButton(
                         modifier = modifier.alignSelf(AlignSelf.Center),
-//                onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
                         onClick = { onClick() },
                         buttonTitle = buttonTitle
                     )
-                    /* Button(
-                         onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
-                         variant = UncoloredButtonVariant,
-                         modifier = modifier
-                             .fontFamily("Karla")
-                             .fontSize(16.px)
-                             .border(1.px, LineStyle.Solid, Color.ServiceSubTitleTextColor.rgb)
-                             .hovered { modifier ->
-                                 modifier.background(Colors.LightGreen)
-                             }
-                             .color(Color.ServiceSubTitleTextColor.rgb),
-                         size = ButtonSize.LG,
-                     ) {
-                         Text(buttonTitle)
-                     }*/
                 }
             }
         }
@@ -106,7 +75,6 @@ fun ServiceItem(
         else -> {
             Row(
                 modifier = modifier.fillMaxWidth().margin { topBottom(20.px) },
-//        modifier = modifier.fillMaxWidth().margin(topBottom = 20.px, leftRight = (-50).px),
                 horizontalArrangement = Arrangement.spacedBy(100.px),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -114,7 +82,6 @@ fun ServiceItem(
                 ServiceImage(
                     src = service.image,
                     modifier = modifier
-//                .margin(left = (-120).px)
                         .size(500.px)
                         .aspectRatio(1f)
                         .objectFit(ObjectFit.Cover)
@@ -123,54 +90,24 @@ fun ServiceItem(
 
 
                 Column(
-//            modifier = modifier.margin(right = (-150).px),
                     verticalArrangement = Arrangement.spacedBy(20.px)
                 ) {
                     SpanText(
                         text = service.title.uppercase(),
                         modifier = ServiceItemTitleTextStyle.toModifier().textAlign(TextAlign.Start)
-                        /*modifier = modifier
-                            .fontFamily("Rubik")
-                            .fontWeight(FontWeight.Medium)
-                            .fontSize(1.75.cssRem)
-                            .color(Color.ServiceTitleTextColor.rgb)*/
                     )
 
                     SpanText(
                         text = service.description,
                         modifier = ServiceItemSubTitleTextStyle.toModifier().textAlign(TextAlign.Start)
-                        /*modifier = modifier
-                            .fillMaxWidth()
-                            .fontFamily("Karla")
-                            .fontWeight(FontWeight.Light)
-                            .lineHeight(25.px)
-                            .fontSize(17.px)
-                            .textAlign(TextAlign.Start)
-                            .color(Color.ServiceSubTitleTextColor.rgb)*/
                     )
 
                     // button
                     BorderedButton(
                         modifier = modifier,
-//                onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
                         onClick = { onClick() },
                         buttonTitle = buttonTitle
                     )
-                    /* Button(
-                         onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
-                         variant = UncoloredButtonVariant,
-                         modifier = modifier
-                             .fontFamily("Karla")
-                             .fontSize(16.px)
-                             .border(1.px, LineStyle.Solid, Color.ServiceSubTitleTextColor.rgb)
-                             .hovered { modifier ->
-                                 modifier.background(Colors.LightGreen)
-                             }
-                             .color(Color.ServiceSubTitleTextColor.rgb),
-                         size = ButtonSize.LG,
-                     ) {
-                         Text(buttonTitle)
-                     }*/
                 }
             }
         }

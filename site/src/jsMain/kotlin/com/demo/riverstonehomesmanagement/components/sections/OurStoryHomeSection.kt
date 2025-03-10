@@ -44,32 +44,14 @@ fun OurStoryHomeSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
 
-
-//                        Column(
-//                            verticalArrangement = Arrangement.spacedBy(20.px),
-//                            horizontalAlignment = Alignment.CenterHorizontally,
-//                        ) {
                         SpanText(
                             text = "Our Story",
                             modifier = OurStoryTitleTextStyle.toModifier().textAlign(TextAlign.Center)
-                            /*modifier = modifier
-                                .fontFamily("Rubik")
-                                .fontWeight(FontWeight.Medium)
-                                .fontSize(1.75.cssRem)
-                                .color(Color.ServiceTitleTextColor.rgb)*/
                         )
 
                         SpanText(
                             text = "With a lot of industry experience, Riverstone Homes Management excels in delivering top-quality residential solutions. Our expertise ensures your project is in safe hands.",
                             modifier = OurStorySubTitleTextStyle.toModifier().textAlign(TextAlign.Center)
-                            /*modifier = modifier
-                                .fillMaxWidth()
-                                .fontFamily("Karla")
-                                .fontWeight(FontWeight.Light)
-                                .lineHeight(25.px)
-                                .fontSize(17.px)
-                                .textAlign(TextAlign.Start)
-                                .color(Color.ServiceSubTitleTextColor.rgb)*/
                         )
 
                         Spacer()
@@ -79,14 +61,12 @@ fun OurStoryHomeSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                             onClick = { ctx.router.tryRoutingTo(Constants.OFFERINGS_ROUTE) },
                             buttonTitle = "Learn More"
                         )
-//                        }
 
                         Spacer()
 
                         ServiceImage(
                             src = Res.OUT_STORY_IMAGE,
                             modifier = modifier
-//                        .margin(left = (-120).px)
                                 .size(250.px)
                                 .aspectRatio(1f)
                                 .objectFit(ObjectFit.Cover)
@@ -106,37 +86,22 @@ fun OurStoryHomeSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                 ) {
                     Row(
                         modifier = modifier.fillMaxWidth().margin { topBottom(70.px) },
-//        modifier = modifier.fillMaxWidth().margin(topBottom = 20.px, leftRight = (-50).px),
                         horizontalArrangement = Arrangement.spacedBy(100.px),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
 
 
                         Column(
-//                    modifier = modifier.margin(right = (-150).px),
                             verticalArrangement = Arrangement.spacedBy(20.px)
                         ) {
                             SpanText(
                                 text = "Our Story",
                                 modifier = OurStoryTitleTextStyle.toModifier().textAlign(TextAlign.Start)
-                                /*modifier = modifier
-                                    .fontFamily("Rubik")
-                                    .fontWeight(FontWeight.Medium)
-                                    .fontSize(1.75.cssRem)
-                                    .color(Color.ServiceTitleTextColor.rgb)*/
                             )
 
                             SpanText(
                                 text = "With a lot of industry experience, Riverstone Homes Management excels in delivering top-quality residential solutions. Our expertise ensures your project is in safe hands.",
                                 modifier = OurStorySubTitleTextStyle.toModifier().textAlign(TextAlign.Start)
-                                /*modifier = modifier
-                                    .fillMaxWidth()
-                                    .fontFamily("Karla")
-                                    .fontWeight(FontWeight.Light)
-                                    .lineHeight(25.px)
-                                    .fontSize(17.px)
-                                    .textAlign(TextAlign.Start)
-                                    .color(Color.ServiceSubTitleTextColor.rgb)*/
                             )
 
                             BorderedButton(
@@ -146,11 +111,9 @@ fun OurStoryHomeSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                             )
                         }
 
-
                         ServiceImage(
                             src = Res.OUT_STORY_IMAGE,
                             modifier = modifier
-//                        .margin(left = (-120).px)
                                 .size(500.px)
                                 .aspectRatio(1f)
                                 .objectFit(ObjectFit.Cover)

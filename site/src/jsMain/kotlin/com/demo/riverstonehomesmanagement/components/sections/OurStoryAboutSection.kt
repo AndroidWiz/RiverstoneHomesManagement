@@ -42,12 +42,6 @@ fun OurStoryAboutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) 
                         SpanText(
                             text = "Our Story",
                             modifier = OurStoryAboutTitleTextStyle.toModifier().margin(topBottom = 15.px)
-                            /*modifier = modifier
-                                .fontFamily("Rubik")
-                                .fontWeight(FontWeight.Medium)
-                                .fontSize(3.cssRem)
-                                .color(Color.ServiceTitleTextColor.rgb)
-                                .margin(top = 30.px)*/
                         )
 
                         Column(
@@ -71,24 +65,12 @@ fun OurStoryAboutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) 
                                 SpanText(
                                     text = "Riverstone Homes Management is a reliable property management company based in Petersburg, FL, dedicated to exceeding client expectations in every project we undertake.",
                                     modifier = OurStoryAboutSubTitleTextStyle.toModifier().textAlign(TextAlign.Center)
-                                    /*modifier = modifier
-                                        .fontFamily("Rubik")
-                                        .fontWeight(FontWeight.Medium)
-                                        .fontSize(1.25.cssRem)
-                                        .color(Color.ServiceTitleTextColor.rgb)*/
                                 )
 
                                 SpanText(
                                     text = "Founded with a passion for craftsmanship and a commitment to excellence, Riverstone Homes Management started with a vision to redefine the home building experience.",
-                                    modifier = OurStoryAboutDescriptionTextStyle.toModifier().textAlign(TextAlign.Center)
-                                    /*modifier = modifier
-                                        .fillMaxWidth()
-                                        .fontFamily("Karla")
-                                        .fontWeight(FontWeight.Light)
-                                        .lineHeight(25.px)
-                                        .fontSize(17.px)
-                                        .textAlign(TextAlign.Start)
-                                        .color(Color.ServiceSubTitleTextColor.rgb)*/
+                                    modifier = OurStoryAboutDescriptionTextStyle.toModifier()
+                                        .textAlign(TextAlign.Center)
                                 )
                             }
                         }
@@ -110,12 +92,6 @@ fun OurStoryAboutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) 
                         SpanText(
                             text = "Our Story",
                             modifier = OurStoryAboutTitleTextStyle.toModifier().margin(topBottom = 30.px)
-                            /*modifier = modifier
-                                .fontFamily("Rubik")
-                                .fontWeight(FontWeight.Medium)
-                                .fontSize(3.cssRem)
-                                .color(Color.ServiceTitleTextColor.rgb)
-                                .margin(top = 30.px)*/
                         )
 
                         Row(
@@ -139,24 +115,11 @@ fun OurStoryAboutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) 
                                 SpanText(
                                     text = "Riverstone Homes Management is a reliable property management company based in Petersburg, FL, dedicated to exceeding client expectations in every project we undertake.",
                                     modifier = OurStoryAboutSubTitleTextStyle.toModifier()
-                                    /*modifier = modifier
-                                        .fontFamily("Rubik")
-                                        .fontWeight(FontWeight.Medium)
-                                        .fontSize(1.25.cssRem)
-                                        .color(Color.ServiceTitleTextColor.rgb)*/
                                 )
 
                                 SpanText(
                                     text = "Founded with a passion for craftsmanship and a commitment to excellence, Riverstone Homes Management started with a vision to redefine the home building experience.",
                                     modifier = OurStoryAboutDescriptionTextStyle.toModifier().textAlign(TextAlign.Start)
-                                    /*modifier = modifier
-                                        .fillMaxWidth()
-                                        .fontFamily("Karla")
-                                        .fontWeight(FontWeight.Light)
-                                        .lineHeight(25.px)
-                                        .fontSize(17.px)
-                                        .textAlign(TextAlign.Start)
-                                        .color(Color.ServiceSubTitleTextColor.rgb)*/
                                 )
                             }
                         }

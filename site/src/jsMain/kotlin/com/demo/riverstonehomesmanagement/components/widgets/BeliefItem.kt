@@ -28,7 +28,6 @@ fun BeliefItem(
 
     Box(
         modifier = modifier
-//            .margin(leftRight = 50.px),
             .margin(
                 leftRight = when (breakpoint) {
                     Breakpoint.SM,
@@ -59,27 +58,12 @@ fun BeliefItem(
                                 Breakpoint.MD -> (-8).px
                                 else -> 0.px
                             }
-                        /*modifier = modifier
-                            .fontFamily("Rubik")
-                            .fontWeight(FontWeight.Medium)
-                            .fontSize(1.5.cssRem)
-                            .color(Color.ServiceTitleTextColor.rgb)
-                            .alignSelf(AlignSelf.Center)*/
                     )
             )
 
             SpanText(
                 text = beliefs.description,
                 modifier = BeliefItemSubTitleTextStyle.toModifier().textAlign(TextAlign.Start)
-                /*modifier = modifier
-                    .fillMaxWidth()
-                    .fontFamily("Karla")
-                    .fontWeight(FontWeight.Light)
-                    .lineHeight(25.px)
-                    .fontSize(17.px)
-//                    .textAlign(TextAlign.Start)
-                    .color(Color.ServiceSubTitleTextColor.rgb)
-                    .alignSelf(AlignSelf.Stretch)*/
             )
         }
     }

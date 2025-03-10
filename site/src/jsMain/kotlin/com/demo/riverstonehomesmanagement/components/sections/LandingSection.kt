@@ -36,15 +36,8 @@ fun LandingSection(breakpoint: Breakpoint) {
     }
 
     Box(
-//        modifier = LandingSectionStyle.toModifier()
-
-
         modifier = Modifier
             .fillMaxWidth()
-            /*.height(600.px)
-            .position(Position.Relative),*/
-//            .padding(top = 100.px, bottom = 100.px, left = 40.px, right = 40.px)
-//            .boxShadow(0.px, 0.px, color = rgba(0, 0, 0, 0.67)) // Simulate box-shadow
             .overflow(Overflow.Visible) // ensures content doesn’t get hidden
             .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
             .backgroundRepeat(BackgroundRepeat.NoRepeat) // no repeating
@@ -56,25 +49,7 @@ fun LandingSection(breakpoint: Breakpoint) {
     ) {
         val ctx = rememberPageContext()
 
-        // background Image
-        /* Box(
-             modifier = Modifier.fillMaxSize()
-                 .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
-                 .backgroundSize(BackgroundSize.Cover)
-                 .position(Position.Absolute)
-         )*/
-
         // dark Overlay
-        /* Box(
-             modifier = Modifier
-                 .fillMaxSize()
-                 .backgroundColor(rgba(0, 0, 0, 0.6))
-                 .position(Position.Absolute)
-                 .zIndex(-1)
-                 .translate(5.px, 5.px)
-         )*/
-
-
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -85,15 +60,7 @@ fun LandingSection(breakpoint: Breakpoint) {
         // content
         Column(
             modifier = Modifier.fillMaxWidth()
-//                .backgroundImage(url(Res.LANDING_PAGE_IMAGE))
-//                .backgroundSize(BackgroundSize.Cover)
-//                .background(rgba(0, 0, 0, 0.67))
-//                .padding { top(100.px) }
-                .position(Position.Relative)
-                .then(padding), // dynamic padding
-//                .padding(topBottom = 150.px, leftRight = 40.px)
-//                .margin { top(100.px) }
-//            ,
+                .position(Position.Relative),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(
                 when (breakpoint) {
@@ -104,11 +71,6 @@ fun LandingSection(breakpoint: Breakpoint) {
         ) {
             SpanText(
                 text = "Your Dream Home Awaits",
-                /*modifier = Modifier
-                    .fontFamily("Rubik")
-                    .fontWeight(FontWeight.SemiBold)
-                    .fontSize(4.25.cssRem)
-                    .color(Colors.White)*/
                 modifier = LandingTitleTextStyle.toModifier()
             )
 
@@ -123,14 +85,6 @@ fun LandingSection(breakpoint: Breakpoint) {
                             else -> 550.px
                         }
                     )
-                /*modifier = Modifier
-                    .fontFamily("Karla")
-                    .fontWeight(FontWeight.Light)
-                    .lineHeight(25.px)
-                    .fontSize(17.px)
-                    .textAlign(TextAlign.Center)
-                    .color(Colors.White)
-                    .width(480.px)*/
             )
 
             Spacer()
@@ -146,14 +100,6 @@ fun LandingSection(breakpoint: Breakpoint) {
                 defaultBorderColor = Colors.Transparent,
                 hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
             )
-            /*Button(
-                onClick = { ctx.router.tryRoutingTo(Constants.CONTACT_ROUTE) },
-                colorPalette = ColorPalettes.Green,
-                modifier = Modifier.fontFamily("Karla").fontSize(16.px).color(Colors.White),
-                size = ButtonSize.LG,
-            ) {
-                Text("Connect With Us")
-            }*/
         }
     }
 }
