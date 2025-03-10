@@ -60,7 +60,8 @@ fun LandingSection(breakpoint: Breakpoint) {
         // content
         Column(
             modifier = Modifier.fillMaxWidth()
-                .position(Position.Relative),
+                .position(Position.Relative)
+                .then(padding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(
                 when (breakpoint) {
