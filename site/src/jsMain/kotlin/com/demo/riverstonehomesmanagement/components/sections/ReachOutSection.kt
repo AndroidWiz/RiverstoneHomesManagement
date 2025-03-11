@@ -1,11 +1,15 @@
 package com.demo.riverstonehomesmanagement.components.sections
 
 import androidx.compose.runtime.*
+import com.demo.riverstonehomesmanagement.components.widgets.AppearanceAwareImage
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
+import com.demo.riverstonehomesmanagement.components.widgets.IconButtonNoHover
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.theme.styles.ReachOutDescriptionTextStyle
 import com.demo.riverstonehomesmanagement.theme.styles.ReachOutSubTitleTextStyle
 import com.demo.riverstonehomesmanagement.theme.styles.ReachOutTitleTextStyle
+import com.demo.riverstonehomesmanagement.utils.Constants
+import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.AlignSelf
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -16,8 +20,11 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.TextInput
+import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
@@ -51,7 +58,7 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                     verticalArrangement = Arrangement.spacedBy(30.px),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    ReachOutInfo(modifier = modifier.fillMaxWidth())
+                    ReachOutInfo(modifier = modifier.fillMaxWidth(), ctx = ctx)
 
                     ReachOutForm(modifier = modifier.fillMaxWidth(), breakpoint = breakpoint)
                 }
@@ -71,7 +78,7 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
                             .then(padding),
                         horizontalArrangement = Arrangement.Center,
                     ) {
-                        ReachOutInfo(modifier = modifier.weight(1f))
+                        ReachOutInfo(modifier = modifier.weight(1f), ctx = ctx)
 
                         // divider line
                         Box(
@@ -91,7 +98,7 @@ fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
 }
 
 @Composable
-fun ReachOutInfo(modifier: Modifier) {
+fun ReachOutInfo(modifier: Modifier, ctx: PageContext) {
     Box(
         modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center,
@@ -113,6 +120,7 @@ fun ReachOutInfo(modifier: Modifier) {
                     .backgroundColor(Color.HoveredGreenButtonColor.rgb)
             )
 
+            // address
             Box {
                 Column {
                     SpanText(
@@ -126,6 +134,8 @@ fun ReachOutInfo(modifier: Modifier) {
                     )
                 }
             }
+
+            // phone
             Box {
                 Column {
                     SpanText(
@@ -139,6 +149,8 @@ fun ReachOutInfo(modifier: Modifier) {
                     )
                 }
             }
+
+            // email
             Box {
                 Column {
                     SpanText(
@@ -161,7 +173,48 @@ fun ReachOutInfo(modifier: Modifier) {
                     .height(0.5.px)
                     .backgroundColor(Color.HoveredGreenButtonColor.rgb)
             )
+
+            // social icons
+            NetworkingIconButtons(ctx = ctx, modifier = modifier)
         }
+    }
+}
+
+@Composable
+fun NetworkingIconButtons(ctx: PageContext, modifier: Modifier) {
+    SimpleGrid(
+        modifier = modifier,
+        numColumns = numColumns(base = 3)
+    ) {
+        IconButtonNoHover(
+            onClick = { ctx.router.navigateTo(Constants.FACEBOOK_URL) }
+        ) {
+            AppearanceAwareImage(src = Res.FACEBOOK)
+        }
+
+        /*IconButtonNoHover(
+            onClick = { ctx.router.navigateTo(Constants.INSTAGRAM_URL) }
+        ) {
+            AppearanceAwareImage(src = Res.INSTAGRAM)
+        }*/
+
+        IconButtonNoHover(
+            onClick = { ctx.router.navigateTo(Constants.TWITTER_URL) }
+        ) {
+            AppearanceAwareImage(src = Res.TWITTER_X)
+        }
+
+        IconButtonNoHover(
+            onClick = { ctx.router.navigateTo(Constants.LINKEDIN_URL) }
+        ) {
+            AppearanceAwareImage(src = Res.LINKEDIN)
+        }
+
+        /*IconButtonNoHover(
+            onClick = { ctx.router.navigateTo(Constants.YOUTUBE_URL) }
+        ) {
+            AppearanceAwareImage(src = Res.YOUTUBE)
+        }*/
     }
 }
 
