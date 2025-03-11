@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.demo.riverstonehomesmanagement.components.sections.Footer
 import com.demo.riverstonehomesmanagement.components.sections.NavHeader
+import com.demo.riverstonehomesmanagement.components.widgets.BackToTopButton
 import com.demo.riverstonehomesmanagement.components.widgets.BackgroundImage
 import com.demo.riverstonehomesmanagement.utils.Res
 import com.varabyte.kobweb.compose.css.Overflow
@@ -63,6 +64,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
                     maxWidth(100.percent)
                 }
             }) { content() }
+            BackToTopButton()
             Footer(breakpoint = breakpoint, modifier = Modifier.fillMaxWidth().gridRow(2))
         }
     }

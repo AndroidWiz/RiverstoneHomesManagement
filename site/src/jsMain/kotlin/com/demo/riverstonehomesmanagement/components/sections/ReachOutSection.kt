@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import com.demo.riverstonehomesmanagement.components.widgets.AppearanceAwareImage
 import com.demo.riverstonehomesmanagement.components.widgets.BorderedButton
 import com.demo.riverstonehomesmanagement.components.widgets.IconButtonNoHover
+import com.demo.riverstonehomesmanagement.components.widgets.LabeledTextInput
 import com.demo.riverstonehomesmanagement.theme.Color
 import com.demo.riverstonehomesmanagement.theme.styles.ReachOutDescriptionTextStyle
 import com.demo.riverstonehomesmanagement.theme.styles.ReachOutSubTitleTextStyle
@@ -22,15 +23,17 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.rememberPageContext
-import com.varabyte.kobweb.silk.components.forms.TextInput
+import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
+import kotlinx.browser.window
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Span
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun ReachOutSection(modifier: Modifier = Modifier, breakpoint: Breakpoint) {
@@ -173,9 +176,6 @@ fun ReachOutInfo(modifier: Modifier, ctx: PageContext) {
                     .height(0.5.px)
                     .backgroundColor(Color.HoveredGreenButtonColor.rgb)
             )
-
-            // social icons
-            NetworkingIconButtons(ctx = ctx, modifier = modifier)
         }
     }
 }
@@ -224,10 +224,13 @@ fun ReachOutForm(modifier: Modifier, breakpoint: Breakpoint) {
     var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var message by remember { mutableStateOf("") }
+    var errorMessage by remember { mutableStateOf("") }
+    var showPopup by remember { mutableStateOf(false) }
+
 
     Box(
         modifier = modifier.fillMaxWidth(),
-        contentAlignment = when(breakpoint){
+        contentAlignment = when (breakpoint) {
             Breakpoint.LG -> Alignment.CenterStart
             else -> Alignment.Center
         }
@@ -237,45 +240,50 @@ fun ReachOutForm(modifier: Modifier, breakpoint: Breakpoint) {
         ) {
 
             // full name
-            Column {
-                SpanText(text = "Full Name")
-                TextInput(
-                    text = fullName,
-                    placeholder = "Enter your full name",
-                    onTextChange = { fullName = it },
-                    modifier = modifier.height(40.px).width(100.percent),
-                    focusBorderColor = Color.HoveredGreenButtonColor.rgb
-                )
-            }
+            LabeledTextInput(
+                label = "Full Name",
+                value = fullName,
+                onTextChanged = { fullName = it },
+                placeholder = "Enter your full name",
+                modifier = modifier,
+            )
 
             // email
-            Column {
-                SpanText(text = "Email")
-                TextInput(
-                    text = email,
-                    placeholder = "Enter your email",
-                    onTextChange = { email = it },
-                    modifier = modifier.height(40.px).fillMaxWidth(),
-                    focusBorderColor = Color.HoveredGreenButtonColor.rgb
-                )
-            }
+            LabeledTextInput(
+                label = "Email",
+                value = email,
+                onTextChanged = { email = it },
+                placeholder = "Enter your email",
+                modifier = modifier,
+            )
 
             // message
-            Column {
-                SpanText(text = "Message")
-                TextInput(
-                    text = message,
-                    placeholder = "Enter your message",
-                    onTextChange = { message = it },
-                    modifier = modifier.height(140.px).fillMaxWidth(),
-                    focusBorderColor = Color.HoveredGreenButtonColor.rgb,
-                )
-            }
+            LabeledTextInput(
+                label = "Message",
+                value = message,
+                onTextChanged = { message = it },
+                placeholder = "Enter your message",
+                modifier = modifier,
+                height = 140.px
+            )
 
             // submit button
             BorderedButton(
                 modifier = modifier,
-                onClick = { },
+                onClick = {
+                    if (fullName.isBlank() || email.isBlank() || message.isBlank()) {
+                        errorMessage = "Please fill in all fields."
+                    } else {
+                        errorMessage = ""
+                        sendEmail(fullName, email, message)
+                        showPopup = true
+
+                        // clear out inputs
+                        fullName = ""
+                        email = ""
+                        message = ""
+                    }
+                },
                 buttonTitle = "Send Message",
                 defaultBgColor = Color.HoveredGreenButtonColor.rgb,
                 hoveredBgColor = Color.UnHoveredGreenButtonColor.rgb,
@@ -284,7 +292,54 @@ fun ReachOutForm(modifier: Modifier, breakpoint: Breakpoint) {
                 defaultBorderColor = Colors.Transparent,
                 hoveredBorderColor = Color.UnHoveredGreenButtonColor.rgb
             )
+
+            if (errorMessage.isNotEmpty()) {
+                Span(attrs = { style { color(Colors.Red) } }) {
+                    Text(value = errorMessage)
+                }
+            }
+        }
+
+        // Popup
+        if (showPopup) {
+            EmailSentPopup { showPopup = false }
         }
     }
+}
+
+@Composable
+fun EmailSentPopup(onClose: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .backgroundColor(Colors.Black.copy(alpha = 0.5f.toInt())),
+        contentAlignment = Alignment.Center
+    ) {
+        Div(attrs = {
+            style {
+                backgroundColor(Colors.White)
+                padding(20.px)
+                borderRadius(8.px)
+            }
+        }) {
+            Text("Email sent successfully!")
+            Button(onClick = { onClose() }) {
+                Text("Close")
+            }
+        }
+    }
+}
+
+fun sendEmail(fullName: String, email: String, message: String) {
+    val recipient = "rashedc004@gmail.com"
+    val subject = "Contact Form Submission"
+    val body = "Full Name: $fullName\nEmail: $email\nMessage: $message"
+
+    val mailtoUri = "mailto:$recipient?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}"
+    window.location.href = mailtoUri
+}
+
+fun encodeURIComponent(value: String): String {
+    return js("encodeURIComponent(value)") as String
 }
 

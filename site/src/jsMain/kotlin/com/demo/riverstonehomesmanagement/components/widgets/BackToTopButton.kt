@@ -1,6 +1,7 @@
 package com.demo.riverstonehomesmanagement.components.widgets
 
 import androidx.compose.runtime.*
+import com.demo.riverstonehomesmanagement.theme.Color
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -18,10 +19,8 @@ import com.varabyte.kobweb.silk.style.animation.toAnimation
 import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.selectors.hover
 import com.varabyte.kobweb.silk.style.toModifier
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import kotlinx.browser.window
-import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 import org.w3c.dom.SMOOTH
 import org.w3c.dom.ScrollBehavior
@@ -34,40 +33,11 @@ val ArrowUpStyle = CssStyle.base {
         .fontSize(1.4.cssRem)
 }
 
-
-/*val BackToTopButtonStyle = CssStyle {
-//    hover.also { Modifier.translateY((-10).px) }
-    base {
-        Modifier
-            .size(50.px)
-            .borderRadius(100.percent)
-            .margin(
-                right = 40.px,
-                bottom = 40.px
-            )
-            .cursor(Cursor.Pointer)
-            .styleModifier {
-                property("pointer-events", "auto")
-            }
-            .transition(
-                CSSTransition(
-                    property = "translate",
-                    duration = 200.ms,
-                    timingFunction = AnimationTimingFunction.Ease
-                )
-            )
-    }
-    hover {
-        Modifier.translateY((-10).px)
-    }
-}*/
-
-@OptIn(ExperimentalComposeWebApi::class)
 val BackToTopButtonStyle = CssStyle {
     base {
         Modifier
-            .size(50.px)
-            .borderRadius(100.percent)
+            .size(45.px)
+            .borderRadius(12.px)
             .margin(
                 right = 40.px,
                 bottom = 40.px
@@ -118,14 +88,8 @@ fun BackToTopButton() {
     ) {
         val show = scroll != null && scroll!! > 400.0
 
-        val buttonColor = when (ColorMode.current) {
-            ColorMode.LIGHT -> Colors.Black
-            ColorMode.DARK -> Colors.White
-        }
-        val arrowColor = when (ColorMode.current) {
-            ColorMode.LIGHT -> Colors.White
-            ColorMode.DARK -> Colors.White
-        }
+        val buttonColor = Color.HoveredGreenButtonColor.rgb
+        val arrowColor = Colors.White
 
         Box(
             modifier = BackToTopButtonStyle
